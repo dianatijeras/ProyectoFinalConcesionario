@@ -8,7 +8,6 @@ public class Cliente extends Persona{
     private String email;
     private Transaccion transaccion;
     private Vehiculo vehiculo;
-    private Collection<Transaccion> listaTransacciones;
     private Collection<Vehiculo> listaVehiculos;
 
     /**
@@ -18,15 +17,12 @@ public class Cliente extends Persona{
      * @param telefono
      * @param direccion
      * @param email
-     * @param transaccion
      * @param vehiculo
      */
-    public Cliente(String nombre, String cedula, String telefono, String direccion, String email, Transaccion transaccion, Vehiculo vehiculo) {
+    public Cliente(String nombre, String cedula, String telefono, String direccion, String email,  Vehiculo vehiculo) {
         super(nombre, cedula, telefono, direccion);
         this.email = email;
-        this.transaccion = transaccion;
         this.vehiculo = vehiculo;
-        this.listaTransacciones = new LinkedList<>();
         this.listaVehiculos = new LinkedList<>();
     }
 
@@ -46,21 +42,6 @@ public class Cliente extends Persona{
         this.email = email;
     }
 
-    /**
-     * Metodo que obtiene una transaccion
-     * @return
-     */
-    public Transaccion getTransaccion() {
-        return transaccion;
-    }
-
-    /**
-     * Metodo que establece una transaccion
-     * @param transaccion
-     */
-    public void setTransaccion(Transaccion transaccion) {
-        this.transaccion = transaccion;
-    }
 
     /**
      * Metodo que obtiene un vehiculo
@@ -76,22 +57,6 @@ public class Cliente extends Persona{
      */
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
-    }
-
-    /**
-     * Metodo que obtiene una lista de transacciones de un cliente
-     * @return
-     */
-    public Collection<Transaccion> getListaTransacciones() {
-        return listaTransacciones;
-    }
-
-    /**
-     * Metodo que establece una lista de transacciones de un cliente
-     * @param listaTransacciones
-     */
-    public void setListaTransacciones(Collection<Transaccion> listaTransacciones) {
-        this.listaTransacciones = listaTransacciones;
     }
 
     /**

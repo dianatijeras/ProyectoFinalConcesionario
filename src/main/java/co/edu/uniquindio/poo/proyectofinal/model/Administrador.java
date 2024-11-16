@@ -11,7 +11,6 @@ public class Administrador extends Empleado{
      * @param cedula
      * @param telefono
      * @param direccion
-     * @param cargo
      * @param salario
      * @param contrasenia
      * @param idEmpleado
@@ -20,7 +19,7 @@ public class Administrador extends Empleado{
      * @param fechaIngreso
      */
     public Administrador(String nombre, String cedula, String telefono, String direccion, String cargo, double salario, String contrasenia, String idEmpleado, String username, Vehiculo vehiculo, String fechaIngreso) {
-        super(nombre, cedula, telefono, direccion, cargo, salario, contrasenia, idEmpleado, username, vehiculo);
+        super(nombre, cedula, telefono, direccion, salario, contrasenia, idEmpleado, username, vehiculo);
         this.fechaIngreso = fechaIngreso;
     }
 

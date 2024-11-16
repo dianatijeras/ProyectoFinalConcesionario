@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 public class Empleado extends Persona{
 
-    private String cargo;
     private double salario;
     private String contrasenia;
     private String idEmpleado;
@@ -19,16 +18,14 @@ public class Empleado extends Persona{
      * @param cedula
      * @param telefono
      * @param direccion
-     * @param cargo
      * @param salario
      * @param contrasenia
      * @param idEmpleado
      * @param username
      * @param vehiculo
      */
-    public Empleado(String nombre, String cedula, String telefono, String direccion, String cargo, double salario, String contrasenia, String idEmpleado, String username, Vehiculo vehiculo) {
+    public Empleado(String nombre, String cedula, String telefono, String direccion, double salario, String contrasenia, String idEmpleado, String username, Vehiculo vehiculo) {
         super(nombre, cedula, telefono, direccion);
-        this.cargo = cargo;
         this.salario = salario;
         this.contrasenia = contrasenia;
         this.idEmpleado = idEmpleado;
@@ -37,21 +34,6 @@ public class Empleado extends Persona{
         this.listaRegistrosVehiculos = new LinkedList<>();
     }
 
-    /**
-     * Metodo que obtiene el cargo de un empleado
-     * @return
-     */
-    public String getCargo() {
-        return cargo;
-    }
-
-    /**
-     * Metodo que establece el cargo de un empleado
-     * @param cargo
-     */
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
 
     /**
      * Metodo que obtiene el salario de un empleado

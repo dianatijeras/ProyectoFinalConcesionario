@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pn_MenuVehiculo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="479.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.VehiculoViewController">
+   <children>
+      <Label fx:id="lbl_TituloVehiculo" layoutX="28.0" layoutY="26.0" text="Vehiculo" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_MarcaVehiculo" layoutX="29.0" layoutY="85.0" text="Marca" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_PlacaVehiculo" layoutX="29.0" layoutY="145.0" text="Placa" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_ModeloVehiculo" layoutX="26.0" layoutY="209.0" text="Modelo" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_CambiosVehiculo" layoutX="27.0" layoutY="276.0" text="Cambios" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_CilindrajeVehiculo" layoutX="25.0" layoutY="339.0" text="Cilindraje" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_VelocidadMaximaVehiculo" layoutX="25.0" layoutY="398.0" text="Velocidad Maxima" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_EstadoVehiculo" layoutX="285.0" layoutY="85.0" text="Estado" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_TipoTransmicionVehiculo" layoutX="284.0" layoutY="153.0" text="Tipo de Transmicion" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_TipoCombistobleVehiculo" layoutX="282.0" layoutY="228.0" text="Tipo de Combustible" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_TipoVehiculo" layoutX="284.0" layoutY="301.0" text="Tipo de Vehiculo" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_Vehiculos" layoutX="285.0" layoutY="379.0" text="Vehiculos" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txf_MarcaVehiculo" layoutX="29.0" layoutY="105.0" onAction="#OnMousePressed_MarcaVehiculo" />
+      <Separator fx:id="sp_separacionTitulo" layoutX="29.0" layoutY="64.0" prefHeight="0.0" prefWidth="426.0" />
+      <TextField fx:id="txf_PlacaVehiculo" layoutX="29.0" layoutY="165.0" onAction="#OnMousePressed_PlacaVehiculo" />
+      <TextField fx:id="txf_ModeloVehiculo" layoutX="26.0" layoutY="229.0" onAction="#OnMousePressed_ModeloVehiculo" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="txf_CambiosVehiculo" layoutX="26.0" layoutY="297.0" onAction="#OnMousePresse_CambiosVehiculo" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="txf_CilindrajeVehiculo" layoutX="26.0" layoutY="359.0" onAction="#OnMousePressed_CilindrajeVehiculo" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="txf_VelocidadMaximaVehiculo" layoutX="26.0" layoutY="418.0" onAction="#OnMousePressed_VelocidadMaximaVehiculo" prefHeight="25.0" prefWidth="149.0" />
+      <Separator fx:id="sp_SepracionMitadMenu" layoutX="235.0" layoutY="85.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="0.0" />
+      <ComboBox fx:id="cb_EstadoVehiculo" layoutX="285.0" layoutY="105.0" onAction="#onClick_EstadoVehiculo" prefWidth="150.0" />
+      <ComboBox fx:id="cb_TipoTransmicionVehiculo" layoutX="285.0" layoutY="179.0" onAction="#onClick_TipoTransmicionVehiculo" prefHeight="19.0" prefWidth="150.0" />
+      <ComboBox fx:id="cb_TipoCombustibleVehiculo" layoutX="285.0" layoutY="254.0" onAction="#onClick_TipoCombustibleVehiculo" prefWidth="150.0" />
+      <ComboBox fx:id="cb_TipoVehiculo" layoutX="285.0" layoutY="328.0" onAction="#onClick_TipoVehiculo" prefWidth="150.0" />
+      <ComboBox fx:id="cb_Vehiculos" layoutX="285.0" layoutY="404.0" onAction="#onClick_Vehiculos" prefWidth="150.0" />
+      <Button fx:id="btn_AgregarVehiculo" layoutX="135.0" layoutY="488.0" mnemonicParsing="false" onAction="#onClick_AgregarVehiculo" text="Agregar" />
+      <Button fx:id="btn_EliminarVehiculo" layoutX="206.0" layoutY="488.0" mnemonicParsing="false" onAction="#onClick_EliminarVehiculo" text="Eliminar" />
+      <Button fx:id="btn_BuscarVehiculo" layoutX="275.0" layoutY="488.0" mnemonicParsing="false" onAction="#onClick_BuscarVehiculo" prefHeight="25.0" prefWidth="59.0" text="Buscar" />
+      <Button fx:id="btn_Volver" layoutX="135.0" layoutY="553.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: grey;" text="Volver" textFill="WHITE" />
+      <Separator fx:id="sp_SeparacionBotones" layoutX="67.0" layoutY="531.0" prefHeight="3.0" prefWidth="336.0" />
+   </children>
+</Pane>

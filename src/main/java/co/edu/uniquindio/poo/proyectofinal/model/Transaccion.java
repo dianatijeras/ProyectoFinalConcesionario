@@ -7,6 +7,7 @@ public class Transaccion {
     private double monto;
     private Vehiculo vehiculo;
     private TipoTransaccion tipoTransaccion;
+    private Cliente cliente;
 
     /**
      * Constructor de la clase Transaccion
@@ -15,13 +16,15 @@ public class Transaccion {
      * @param monto
      * @param vehiculo
      * @param tipoTransaccion
+     * @param cliente
      */
-    public Transaccion(String idTransaccion, String fecha, double monto, Vehiculo vehiculo, TipoTransaccion tipoTransaccion) {
+    public Transaccion(String idTransaccion, String fecha, double monto, Vehiculo vehiculo, TipoTransaccion tipoTransaccion, Cliente cliente) {
         this.idTransaccion = idTransaccion;
         this.fecha = fecha;
         this.monto = monto;
         this.vehiculo = vehiculo;
         this.tipoTransaccion = tipoTransaccion;
+        this.cliente = cliente;
     }
 
     /**
@@ -102,5 +105,22 @@ public class Transaccion {
      */
     public void setTipoTransaccion(TipoTransaccion tipoTransaccion) {
         this.tipoTransaccion = tipoTransaccion;
+    }
+
+    /**
+     * Metodo que obtiene un cliente
+     * @return
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * Metodo que establece un cliente
+     *
+     * @param cliente
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

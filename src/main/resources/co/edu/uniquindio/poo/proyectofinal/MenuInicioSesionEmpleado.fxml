@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pn_MenuEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="272.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.InicioSesionEmpleadoViewController">
+   <children>
+      <Label fx:id="lbl_tituloInicioSseion" layoutX="24.0" layoutY="22.0" text="Inicio Sesion">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txf_ingresoUsuario" layoutX="23.0" layoutY="84.0" onAction="#OnMousePressed_usuario" prefHeight="25.0" prefWidth="223.0" />
+      <TextField fx:id="txf_ingresoContrasenia" layoutX="23.0" layoutY="141.0" onAction="#OnMousePressed_contrasenia" prefHeight="25.0" prefWidth="223.0" />
+      <Label fx:id="lbl_usuario" layoutX="23.0" layoutY="64.0" text="usuario">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_contrasenia" layoutX="23.0" layoutY="121.0" text="contraseña">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_iniciarSesionEmpleado" layoutX="23.0" layoutY="180.0" mnemonicParsing="false" onAction="#onClick_iniciarSesion" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: green;" text="Iniciar Sesion" textFill="WHITE" />
+      <Separator fx:id="sp_sepracionTitulo" layoutX="16.0" layoutY="48.0" prefHeight="3.0" prefWidth="235.0" />
+      <Button fx:id="btn_VolverMenuInicio" layoutX="22.0" layoutY="216.0" mnemonicParsing="false" onAction="#onClick_VolverMenuInicio" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: gray;" text="Volver" textFill="WHITE" />
+   </children>
+</Pane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="600.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="32.0" layoutY="34.0" text="Empleado" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="93.0" text="Nombre" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="156.0" text="Cedula" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="217.0" text="Telefono" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="276.0" text="Direccion" textFill="#fcfcfc">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="341.0" text="Salario" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="410.0" text="ID Empleado" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField layoutX="33.0" layoutY="113.0" />
+      <TextField layoutX="33.0" layoutY="176.0" />
+      <TextField layoutX="32.0" layoutY="237.0" />
+      <TextField layoutX="32.0" layoutY="296.0" />
+      <TextField layoutX="33.0" layoutY="361.0" />
+      <TextField layoutX="33.0" layoutY="431.0" />
+   </children>
+</Pane>
