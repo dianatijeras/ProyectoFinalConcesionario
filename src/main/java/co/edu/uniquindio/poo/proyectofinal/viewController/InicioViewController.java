@@ -53,20 +53,30 @@ public class InicioViewController {
     @FXML
     void onClickIngresarEmpleado(ActionEvent event) {
         cambiarVentana("MenuInicioSesionAdministrador.fxml");
-
     }
+
 
     @FXML private void cambiarVentana(String fxmlFile) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
-            Stage stage = (Stage) pn_PantallaInicio.getScene().getWindow();
-            Scene scene = new Scene(root); stage.setScene(scene);
-            stage.show();
-        } catch (IOException e)
-        { e.printStackTrace();
-        }
-    }
+             try {
+                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+                 Scene scene = new Scene(loader.load());
+                 Stage stage = new Stage();
+
+                 stage.setScene(scene);
+
+                 Stage close = (Stage) btn_botonIngresarEmpleado.getScene().getWindow();
+                 close.close();
+
+                 stage.show();;
+                 //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+                 //Parent root = loader.load();
+                 //Stage stage = (Stage) pn_PantallaInicio.getScene().getWindow();
+                 //Scene scene = new Scene(root); stage.setScene(scene);
+                 //stage.show();
+             } catch (IOException e)
+             { e.printStackTrace();
+             }
+         }
 
     @FXML
     void initialize() {

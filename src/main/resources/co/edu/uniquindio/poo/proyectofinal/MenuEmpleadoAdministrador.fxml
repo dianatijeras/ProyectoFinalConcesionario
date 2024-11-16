@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="600.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pn_MenuEmpleadoAdministrador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="344.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.EmpleadoAdministradorViewController">
    <children>
-      <Label layoutX="32.0" layoutY="34.0" text="Empleado" textFill="WHITE">
+      <Label fx:id="lbl_Empleado" layoutX="32.0" layoutY="39.0" text="Empleado" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="93.0" text="Nombre" textFill="WHITE">
+      <Label fx:id="lbl_NombreEmpleado" layoutX="33.0" layoutY="93.0" text="Nombre" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="156.0" text="Cedula" textFill="WHITE">
+      <Label fx:id="lbl_CedulaEmpleado" layoutX="33.0" layoutY="156.0" text="Cedula" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="217.0" text="Telefono" textFill="WHITE">
+      <Label fx:id="lbl_TelefonoEmpleado" layoutX="32.0" layoutY="217.0" text="Telefono" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="276.0" text="Direccion" textFill="#fcfcfc">
+      <Label fx:id="lbl_DireccionEmpleado" layoutX="33.0" layoutY="276.0" text="Direccion" textFill="#fcfcfc">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="341.0" text="Salario" textFill="WHITE">
+      <Label fx:id="lbl_Salario" layoutX="34.0" layoutY="341.0" text="Salario" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="410.0" text="ID Empleado" textFill="WHITE">
+      <Label fx:id="lbl_IDEmpleado" layoutX="33.0" layoutY="410.0" text="ID Empleado" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="33.0" layoutY="113.0" />
-      <TextField layoutX="33.0" layoutY="176.0" />
-      <TextField layoutX="32.0" layoutY="237.0" />
-      <TextField layoutX="32.0" layoutY="296.0" />
-      <TextField layoutX="33.0" layoutY="361.0" />
-      <TextField layoutX="33.0" layoutY="431.0" />
+      <TextField fx:id="txf_NombreEmpleado" layoutX="33.0" layoutY="113.0" onAction="#OnMousePressed_NombreEmpleado" />
+      <TextField fx:id="txf_CedulaEmpleado" layoutX="33.0" layoutY="176.0" onAction="#OnMousePressed_CedulaEmpleado" />
+      <TextField fx:id="txf_TelefonoEmpleado" layoutX="32.0" layoutY="237.0" onAction="#OnMousePressed_TelefonoEmpleado" />
+      <TextField fx:id="txf_DireccionEmpleado" layoutX="32.0" layoutY="296.0" onAction="#OnMousePressed_DireccionEmpleado" />
+      <TextField fx:id="txf_SalarioEmpleado" layoutX="33.0" layoutY="361.0" onAction="#OnMousePressed_SalarioEmpleado" />
+      <TextField fx:id="txf_IDEmpleado" layoutX="33.0" layoutY="431.0" onAction="#OnMousePressed_IDEmpleado" />
+      <Separator fx:id="sp_SeparacionTitulo" layoutX="21.0" layoutY="73.0" prefHeight="3.0" prefWidth="294.0" />
+      <Button fx:id="btn_AgregarEmpleado" layoutX="34.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_AgregarEmpleado" prefHeight="25.0" prefWidth="73.0" text="Agregar" />
+      <Button fx:id="btn_BuscarEmpleado" layoutX="137.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_BuscarEmpleado" prefHeight="25.0" prefWidth="73.0" text="Buscar" />
+      <Button fx:id="btn_EliminarEmpleado" layoutX="234.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_EliminarEmpleado" prefHeight="25.0" prefWidth="73.0" text="Eliminar" />
+      <Button fx:id="btn_Volver" layoutX="29.0" layoutY="533.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="281.0" style="-fx-background-color: grey;" text="Volver" textFill="WHITE" />
    </children>
 </Pane>

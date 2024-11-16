@@ -1,14 +1,19 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class ClienteViewController {
 
@@ -112,8 +117,22 @@ public class ClienteViewController {
 
     @FXML
     void onClick_Volver(ActionEvent event) {
-
+      //  cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/MenuEmpleado.fxml");
+        //Espera, todavia no codifiques, necesito mirar algo, A:estoy repitiendo proceso de volver a la anterior pagina, lo que me dice copilot es un metodo que es simple y vuelve la pagina que uno ponga el link
     }
+
+    @FXML private void cambiarVentana(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+            Stage stage = (Stage) pn_MenuCliente.getScene().getWindow();
+            Scene scene = new Scene(root); stage.setScene(scene);
+            stage.show();
+        } catch (IOException e)
+        { e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void onClick_agregarCliente(ActionEvent event) {
