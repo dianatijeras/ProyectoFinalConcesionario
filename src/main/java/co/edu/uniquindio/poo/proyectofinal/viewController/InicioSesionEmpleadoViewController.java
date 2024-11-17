@@ -64,54 +64,43 @@ public class InicioSesionEmpleadoViewController {
 
     @FXML
     void onClick_VolverMenuInicio(ActionEvent event) {
-        cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/InicioViewController.fxml");
 
     }
 
-    /**
-     *
-     * @FXML
-     * private void volver(ActionEvent event) throws IOException {
-     *     cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/MenuInicio.fxml");
-     * }
-     *
-     * @FXML
-     * private void cambiarVentana(String fxmlFile) {
-     *     try {
-     *         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-     *         Parent root = loader.load();
-     *         Stage stage = (Stage) pn_MenuEmpleado.getScene().getWindow();
-     *         Scene scene = new Scene(root);
-     *         stage.setScene(scene);
-     *         stage.show();
-     *     } catch (IOException e) {
-     *         e.printStackTrace();
-     *     }
-     * }
-     *
-     */
 
     @FXML
     void onClick_iniciarSesion(ActionEvent event) {
         String usuario = txf_ingresoUsuario.getText();
         String contrasenia = txf_ingresoContrasenia.getText();
-        if("Empleado".equals(usuario) && "1234".equals(contrasenia)) {
-            System.out.println("Inicio de sesion exitosa");
-            cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/EmpleadoViewController.fxml");
+
+        if ("Empleado".equals(usuario) && "1234".equals(contrasenia)) {
+            System.out.println("Inicio de sesión exitoso");
+            cambiarVentana(event);
         } else {
             System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
         }
-
     }
-    @FXML private void cambiarVentana(String fxmlFile) {
+
+    @FXML
+    private void cambiarVentana(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            // Carga la nueva vista
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
             Parent root = loader.load();
-            Stage stage = (Stage) pn_MenuEmpleado.getScene().getWindow();
-            Scene scene = new Scene(root); stage.setScene(scene);
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+
+            Stage currentStage = (Stage) (btn_iniciarSesionEmpleado).getScene().getWindow();
+            currentStage.close();
+
             stage.show();
-        } catch (IOException e)
-        { e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

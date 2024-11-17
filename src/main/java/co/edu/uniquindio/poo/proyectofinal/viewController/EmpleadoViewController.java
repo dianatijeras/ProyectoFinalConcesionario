@@ -48,25 +48,45 @@ public class EmpleadoViewController {
 
     @FXML
     void onClick_CerrarSesionEmpleado(ActionEvent event) {
-        cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/MenuInicio.fxml");
     }
 
     @FXML
     void onClick_Transaccion(ActionEvent event) {
-        cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/TransaccionView.fxml");
+
 
     }
 
     @FXML
     void onClick_cliente(ActionEvent event) {
-        cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/ClienteView.fxml");
     }
 
     @FXML
     void onClick_vehiculo(ActionEvent event) {
-        cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/VehiculoView.fxml");
+
+    }
+    @FXML
+    private void cambiarVentana(ActionEvent event) {
+        try {
+            // Carga la nueva vista
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuCliente.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_Cliente).getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+   /**
     @FXML private void cambiarVentana(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -78,7 +98,7 @@ public class EmpleadoViewController {
         { e.printStackTrace();
         }
     }
-
+      */
     @FXML
     void initialize() {
         assert btn_CerrarSesionEmpleado != null : "fx:id=\"btn_CerrarSesionEmpleado\" was not injected: check your FXML file 'MenuEmpleado.fxml'.";

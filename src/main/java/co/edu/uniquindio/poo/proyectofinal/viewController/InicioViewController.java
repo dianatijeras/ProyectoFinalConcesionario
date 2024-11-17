@@ -47,27 +47,28 @@ public class InicioViewController {
 
     @FXML
     void onClickIngresarAdministrador(ActionEvent event) {
-        cambiarVentana("MenuInicioSesionEmpleado.fxml");
+        cambiarVentana();
     }
 
     @FXML
     void onClickIngresarEmpleado(ActionEvent event) {
-        cambiarVentana("MenuInicioSesionAdministrador.fxml");
+        cambiarVentana();
     }
 
 
-    @FXML private void cambiarVentana(String fxmlFile) {
+    @FXML private void cambiarVentana() {
              try {
-                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-                 Scene scene = new Scene(loader.load());
-                 Stage stage = new Stage();
+                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicioSesionEmpleado.fxml"));
+                 Parent root = loader.load();
+                 Scene scene = new Scene(root);
 
+                 Stage stage = new Stage();
                  stage.setScene(scene);
 
                  Stage close = (Stage) btn_botonIngresarEmpleado.getScene().getWindow();
                  close.close();
 
-                 stage.show();;
+                 stage.show();
                  //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
                  //Parent root = loader.load();
                  //Stage stage = (Stage) pn_PantallaInicio.getScene().getWindow();

@@ -62,10 +62,45 @@ public class InicioSesionAdministradorViewController {
 
     @FXML
     void onClick_VolverInicio(ActionEvent event) {
-        cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/InicioViewController.fxml");
 
     }
 
+    @FXML
+    void onClick_iniciarSesion(ActionEvent event) {
+        String usuario = txf_ingresoUsuario.getText();
+        String contrasenia = txf_ingresoContrasenia.getText();
+
+        if ("Administrador".equals(usuario) && "1234".equals(contrasenia)) {
+            System.out.println("Inicio de sesión exitoso");
+            cambiarVentana(event);
+        } else {
+            System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
+        }
+    }
+
+    @FXML
+    private void cambiarVentana(ActionEvent event) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuAdministrador.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+
+            Stage currentStage = (Stage) (btn_iniciarSesionAdministrador).getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+     /**
     @FXML
     void onClick_iniciarSesion(ActionEvent event) {
         String usuario = txf_ingresoUsuario.getText();
@@ -89,7 +124,7 @@ public class InicioSesionAdministradorViewController {
         { e.printStackTrace();
         }
     }
-
+    */
 
     @FXML
     void initialize() {
