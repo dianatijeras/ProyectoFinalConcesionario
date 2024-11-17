@@ -107,8 +107,37 @@ public class TransaccionViewController {
 
     @FXML
     void onClick_RealizarTransaccion(ActionEvent event) {
+        TipoTransaccion tipo = cb_TipoTransaccion.getValue();
+        if(tipo != null){
+            switch (tipo){
+                case VENTA:
+                    realizarVenta();
+                    break;
+                case ALQUILER:
+                    realizarAlquiler();
+                case COMPRA:
+                    realizarCompra();
+                    break;
+            }
+        } else {
+            System.out.println("Selecciones un tipo de transaccion");
+        }
 
     }
+
+    private void realizarVenta(){
+        System.out.println("Realizando venta..");
+
+    }
+
+    private void realizarCompra(){
+        System.out.println("Realizando compra..");
+    }
+
+    private void realizarAlquiler(){
+        System.out.println("Realizando alquiler..");
+    }
+
 
     @FXML
     void onClick_TipoTransaccion(ActionEvent event) {

@@ -124,7 +124,7 @@ public class ClienteViewController {
 
     @FXML
     void onClick_EliminarCliente(ActionEvent event) {
-    /**
+     /**
         String cedula = txf_CedulaCliente.getText();
         clienteController.eliminarCliente(cedula); }
         */

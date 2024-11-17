@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.controller.VehiculoController;
 import co.edu.uniquindio.poo.proyectofinal.model.Estado;
 import co.edu.uniquindio.poo.proyectofinal.model.TipoCombustible;
 import co.edu.uniquindio.poo.proyectofinal.model.TipoTransmicion;
 import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
-import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class VehiculoViewController {
-    private Concesionario concesionario;
+    private VehiculoController vehiculoController;
 
     @FXML
     private ResourceBundle resources;
@@ -192,21 +193,19 @@ public class VehiculoViewController {
 
     public void volverAVentanaAnterior() {
         try {
-            // Cargar el archivo FXML de InicioViewController
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
             Parent root = loader.load();
 
-            // Obtener el Stage actual
             Stage currentStage = (Stage) (btn_Volver).getScene().getWindow();
 
-            // Configurar la nueva escena
+
             Scene scene = new Scene(root);
             currentStage.setScene(scene);
             currentStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar el error en caso de que el archivo FXML no se cargue
         }
     }
 

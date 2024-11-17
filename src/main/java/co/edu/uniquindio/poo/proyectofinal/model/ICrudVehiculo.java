@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import java.util.Collection;
+
 public interface ICrudVehiculo {
 
     /**
@@ -17,11 +19,7 @@ public interface ICrudVehiculo {
     /**
      * Metodo que implementa la clase Concesionario que busca un vehiculo por su tipo
      */
-    public void buscarVehiculoPorTipo();
+    public Vehiculo buscarVehiculo(String placa);
 
 
-    /**
-     * Metodo que implementa la clase Concesionario que muestra los vehiculos disponibles
-     */
-    public void vehiculosDisponibles();
 }

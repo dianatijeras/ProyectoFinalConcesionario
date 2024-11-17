@@ -18,6 +18,7 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
     private Collection<Empleado> listaEmpleados;
     private Collection<Transaccion> listaTransacciones;
 
+
     /**
      * Constructor de la clase principal Concesionario
      * @param nombre
@@ -42,6 +43,8 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         this.listaClientes = new LinkedList<>();
         this.listaEmpleados = new LinkedList<>();
         this.listaTransacciones = new LinkedList<>();
+
+
     }
 
     /**
@@ -236,6 +239,7 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         this.listaTransacciones = listaTransacciones;
     }
 
+
     /**
      * Metodo que verifica si existe y registra un cliente
      * @param cliente
@@ -361,6 +365,15 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
 
     @Override
     public void registroTransacciones() {
+        for (Transaccion transaccion : listaTransacciones){
+            System.out.println("ID: " + transaccion.getIdTransaccion());
+            System.out.println("Fecha: " + transaccion.getFecha());
+            System.out.println("Monto: " + transaccion.getMonto());
+            System.out.println("Vehiculo: " + transaccion.getVehiculo().getPlaca());
+            System.out.println("Tipo: " + transaccion.getTipoTransaccion());
+            System.out.println("Cliente: " + transaccion.getCliente().getNombre());
+            System.out.println("--------------------------------");
+        }
     }
 
     /**
@@ -400,6 +413,7 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         }
     }
 
+
     /**
      * Metodo que elimina un vehiculo
      * @param placa
@@ -414,11 +428,43 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         }
     }
 
+    /**
+     * Metodo que busca a un vehiculo por su placa
+     * @param placa
+     */
     @Override
-    public void buscarVehiculoPorTipo() {
+    public Vehiculo buscarVehiculo(String placa) {
+        Vehiculo vehiculoFinal= null;
+        for(Vehiculo vehiculo : listaVehiculos){
+            if(vehiculo.getPlaca().equals(placa)){
+                vehiculoFinal = vehiculo;
+                System.out.println("Se encontro el vehiculo: " + vehiculo);
+            }
+        }
+        return vehiculoFinal;
     }
 
-    @Override
-    public void vehiculosDisponibles() {
+    public  void  agregarTransaccionVenta(Transaccion transaccion) {
+        if(transaccion.getTipoTransaccion() == TipoTransaccion.VENTA) {
+            listaTransacciones.add(transaccion);
+            System.out.println("venta registrada: " + transaccion.getIdTransaccion());
+        }
     }
+
+    public  void  agregarTransaccionCompra(Transaccion transaccion) {
+        if(transaccion.getTipoTransaccion() == TipoTransaccion.COMPRA) {
+            listaTransacciones.add(transaccion);
+            System.out.println("compra registrada: " + transaccion.getIdTransaccion());
+        }
+    }
+
+    public  void  agregarTransaccionAlquiler(Transaccion transaccion) {
+        if(transaccion.getTipoTransaccion() == TipoTransaccion.ALQUILER) {
+            listaTransacciones.add(transaccion);
+            System.out.println("alquiler registrada: " + transaccion.getIdTransaccion());
+        }
+    }
+
+
+
 }
