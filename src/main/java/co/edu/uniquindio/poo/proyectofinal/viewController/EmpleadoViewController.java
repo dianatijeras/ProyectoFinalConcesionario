@@ -25,9 +25,6 @@ public class EmpleadoViewController {
     private URL location;
 
     @FXML
-    private Button btn_Volver;
-
-    @FXML
     private Button btn_CerrarSesionEmpleado;
 
     @FXML
@@ -53,6 +50,7 @@ public class EmpleadoViewController {
 
     @FXML
     void onClick_CerrarSesionEmpleado(ActionEvent event) {
+        volverAInicio();
     }
 
     @FXML
@@ -70,27 +68,7 @@ public class EmpleadoViewController {
         cambiarVentana3();
     }
 
-    @FXML
-    void onClick_volver(){
-        volver();
-    }
 
-    @FXML
-    private void volver() {
-        try {
-            // Obtener el Stage actual desde el botón
-            Stage currentStage = (Stage) (btn_Volver.getScene().getWindow());
-
-            // Cerrar la ventana actual
-            currentStage.close();
-
-
-            // El control se devuelve automáticamente a la ventana anterior si sigue abierta.
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     @FXML
     private void cambiarVentana() {
 
@@ -155,20 +133,27 @@ public class EmpleadoViewController {
         }
     }
 
-
-    /**
-    @FXML private void cambiarVentana(String fxmlFile) {
+    public void volverAInicio() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            // Cargar el archivo FXML de InicioViewController
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicio.fxml"));
             Parent root = loader.load();
-            Stage stage = (Stage) pn_MenuEmpleado.getScene().getWindow();
-            Scene scene = new Scene(root); stage.setScene(scene);
-            stage.show();
-        } catch (IOException e)
-        { e.printStackTrace();
+
+            // Obtener el Stage actual
+            Stage currentStage = (Stage) (btn_CerrarSesionEmpleado).getScene().getWindow();
+
+            // Configurar la nueva escena
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Manejar el error en caso de que el archivo FXML no se cargue
         }
     }
-      */
+
+
     @FXML
     void initialize() {
         assert btn_CerrarSesionEmpleado != null : "fx:id=\"btn_CerrarSesionEmpleado\" was not injected: check your FXML file 'MenuEmpleado.fxml'.";

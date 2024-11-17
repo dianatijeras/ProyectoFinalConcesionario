@@ -107,38 +107,63 @@ public class ClienteViewController {
 
     @FXML
     void onClick_BuscarCliente(ActionEvent event) {
-
+        /**
+        String cedula = txf_CedulaCliente.getText();
+        Cliente cliente = clienteController.buscarCliente(cedula);
+        if (cliente != null) { txf_NombreCliente.setText(cliente.getNombre());
+            txf_DireccionCliente.setText(cliente.getDireccion());
+            txf_EmailCliente.setText(cliente.getEmail());
+            txf_TelefonoCliente.setText(cliente.getTelefono());
+        }
+    }
+     */
     }
 
     @FXML
     void onClick_EliminarCliente(ActionEvent event) {
-
+    /**
+        String cedula = txf_CedulaCliente.getText();
+        clienteController.eliminarCliente(cedula); }
+        */
     }
 
     @FXML
     void onClick_Volver(ActionEvent event) {
-      //  cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/MenuEmpleado.fxml");
-        //Espera, todavia no codifiques, necesito mirar algo, A:estoy repitiendo proceso de volver a la anterior pagina, lo que me dice copilot es un metodo que es simple y vuelve la pagina que uno ponga el link
-    }
+        volverAVentanaAnterior();
 
-    @FXML private void cambiarVentana(String fxmlFile) {
+    }
+    public void volverAVentanaAnterior() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            // Cargar el archivo FXML de InicioViewController
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
             Parent root = loader.load();
-            Stage stage = (Stage) pn_MenuCliente.getScene().getWindow();
-            Scene scene = new Scene(root); stage.setScene(scene);
-            stage.show();
-        } catch (IOException e)
-        { e.printStackTrace();
+
+            // Obtener el Stage actual
+            Stage currentStage = (Stage) (btn_Volver).getScene().getWindow();
+
+            // Configurar la nueva escena
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Manejar el error en caso de que el archivo FXML no se cargue
         }
     }
 
 
     @FXML
     void onClick_agregarCliente(ActionEvent event) {
-
+    /**
+        Cliente cliente = new Cliente( txf_CedulaCliente.getText(),
+                txf_NombreCliente.getText(),
+                txf_DireccionCliente.getText(),
+                txf_EmailCliente.getText(),
+                txf_TelefonoCliente.getText() );
+        clienteController.registrarCliente(cliente);}
+       */
     }
-
     @FXML
     void initialize() {
         assert btn_AgregarCliente != null : "fx:id=\"btn_AgregarCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";
@@ -164,3 +189,4 @@ public class ClienteViewController {
     }
 
 }
+

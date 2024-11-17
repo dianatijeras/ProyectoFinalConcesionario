@@ -1,15 +1,22 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import co.edu.uniquindio.poo.proyectofinal.controller.TransaccionController;
+import co.edu.uniquindio.poo.proyectofinal.model.TipoTransaccion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class TransaccionViewController {
 
@@ -29,7 +36,7 @@ public class TransaccionViewController {
     private Button btn_Volver;
 
     @FXML
-    private ComboBox<?> cb_TipoTransaccion;
+    private ComboBox<TipoTransaccion> cb_TipoTransaccion;
 
     @FXML
     private Label lbl_ClienteTransaccion;
@@ -110,8 +117,25 @@ public class TransaccionViewController {
 
     @FXML
     void onClick_Volver(ActionEvent event) {
+        volverAVentanaAnterior();
 
     }
+    public void volverAVentanaAnterior() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
+            Parent root = loader.load();
+
+            Stage currentStage = (Stage) (btn_Volver).getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void initialize() {
@@ -136,5 +160,7 @@ public class TransaccionViewController {
 
     }
 
-
 }
+
+
+

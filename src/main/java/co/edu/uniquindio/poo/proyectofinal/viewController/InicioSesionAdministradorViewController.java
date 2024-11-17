@@ -62,22 +62,68 @@ public class InicioSesionAdministradorViewController {
 
     @FXML
     void onClick_VolverInicio(ActionEvent event) {
-
+        volverAInicio();
     }
-
+    /**
     @FXML
     void onClick_iniciarSesion(ActionEvent event) {
+        // Obtiene los valores ingresados por el usuario
         String usuario = txf_ingresoUsuario.getText();
         String contrasenia = txf_ingresoContrasenia.getText();
 
-        if ("Administrador".equals(usuario) && "1234".equals(contrasenia)) {
-            System.out.println("Inicio de sesión exitoso");
-            cambiarVentana(event);
+        // Imprime las credenciales para depuración
+        System.out.println("Usuario: " + usuario);
+        System.out.println("Contraseña: " + contrasenia);
+
+        // Verifica las credenciales y redirige a diferentes vistas según el usuario
+        if ("Empleado".equals(usuario) && "1234".equals(contrasenia)) {
+            System.out.println("Inicio de sesión exitoso para Empleado");
+
+        } else if ("Admin".equals(usuario) && "adminpass".equals(contrasenia)) {
+            System.out.println("Inicio de sesión exitoso para Administrador");
+            cambiarVentana2("/co/edu/uniquindio/poo/proyectofinal/view/MenuAdministrador.fxml");
         } else {
             System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
         }
     }
 
+    /**
+     * Cambia la ventana actual a la especificada por el archivo FXML.
+     *
+     * @param fxmlFile Ruta del archivo FXML de la nueva ventana.
+
+    @FXML
+    private void cambiarVentana2(String fxmlFile) {
+        try {
+            // Carga el archivo FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/view/MenuAdministrador.fxml"));
+            Parent root = loader.load();
+
+            // Obtiene la ventana actual y establece la nueva escena
+            Stage stage = (Stage) btn_iniciarSesionAdministrador.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    */
+    /**
+    @FXML
+    void onClick_iniciarSesion(ActionEvent event) {
+        String usuario = txf_ingresoUsuario.getText();
+        String contrasenia = txf_ingresoContrasenia.getText();
+
+        if ("Admin".equals(usuario) && "123".equals(contrasenia)) {
+            System.out.println("Inicio de sesión exitoso");
+            cambiarVentana(event);
+        } else {
+            System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
+        }
+
+    }
     @FXML
     private void cambiarVentana(ActionEvent event) {
         try {
@@ -100,31 +146,27 @@ public class InicioSesionAdministradorViewController {
             e.printStackTrace();
         }
     }
-     /**
-    @FXML
-    void onClick_iniciarSesion(ActionEvent event) {
-        String usuario = txf_ingresoUsuario.getText();
-        String contrasenia = txf_ingresoContrasenia.getText();
-        if("Administrador".equals(usuario) && "1234".equals(contrasenia)) {
-            System.out.println("Inicio de sesion exitosa");
-            cambiarVentana("/co/edu/uniquindio/poo/proyectofinal/view/AdministradorViewController.fxml");
-        } else {
-            System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
-        }
-
-    }
-    @FXML private void cambiarVentana(String fxmlFile) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
-            Stage stage = (Stage) pn_MenuAdministrador.getScene().getWindow();
-            Scene scene = new Scene(root); stage.setScene(scene);
-            stage.show();
-        } catch (IOException e)
-        { e.printStackTrace();
-        }
-    }
     */
+    public void volverAInicio() {
+        try {
+            // Cargar el archivo FXML de InicioViewController
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicio.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el Stage actual
+            Stage currentStage = (Stage) (btn_VolverMenuIncio).getScene().getWindow();
+
+            // Configurar la nueva escena
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Manejar el error en caso de que el archivo FXML no se cargue
+        }
+    }
+
 
     @FXML
     void initialize() {

@@ -1,13 +1,18 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class AdministradorViewController {
 
@@ -51,23 +56,115 @@ public class AdministradorViewController {
 
     @FXML
     void onClick_Empleado(ActionEvent event) {
+        cambiarVentana();
 
     }
 
     @FXML
     void onClick_Empleados(ActionEvent event) {
+        cambiarVentana2();
 
     }
 
     @FXML
     void onClick_Reporte(ActionEvent event) {
+        cambiarVentana3();
 
     }
 
     @FXML
     void onClick_Vehiculos(ActionEvent event) {
+        cambiarVentana4();
 
     }
+
+    @FXML
+    private void cambiarVentana() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_Empleado.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void cambiarVentana2() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuVerEmpleados.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_Empleados.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void cambiarVentana3() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuReporte.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_Reporte.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void cambiarVentana4() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuVerVehiculos.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_Vehiculos.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 
     @FXML
     void initialize() {
