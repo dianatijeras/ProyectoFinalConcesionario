@@ -27,10 +27,7 @@ public class EmpleadoAdministradorViewController {
     private Button btn_AgregarEmpleado;
 
     @FXML
-    private Button btn_BuscarEmpleado;
-
-    @FXML
-    private Button btn_EliminarEmpleado;
+    private Button btn_BuscarOEliminarEmpleado;
 
     @FXML
     private Button btn_Volver;
@@ -116,12 +113,7 @@ public class EmpleadoAdministradorViewController {
     }
 
     @FXML
-    void onClick_BuscarEmpleado(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onClick_EliminarEmpleado(ActionEvent event) {
+    void onClick_BuscarOEliminarEmpleado(ActionEvent event) {
 
     }
 
@@ -133,7 +125,7 @@ public class EmpleadoAdministradorViewController {
     public void volverAInicio() {
         try {
             // Cargar el archivo FXML de InicioViewController
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicio.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuAdministrador.fxml"));
             Parent root = loader.load();
 
             // Obtener el Stage actual
@@ -153,8 +145,7 @@ public class EmpleadoAdministradorViewController {
     @FXML
     void initialize() {
         assert btn_AgregarEmpleado != null : "fx:id=\"btn_AgregarEmpleado\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";
-        assert btn_BuscarEmpleado != null : "fx:id=\"btn_BuscarEmpleado\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";
-        assert btn_EliminarEmpleado != null : "fx:id=\"btn_EliminarEmpleado\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";
+        assert btn_BuscarOEliminarEmpleado != null : "fx:id=\"btn_BuscarOEliminarEmpleado\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";
         assert lbl_CedulaEmpleado != null : "fx:id=\"lbl_CedulaEmpleado\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";
         assert lbl_DireccionEmpleado != null : "fx:id=\"lbl_DireccionEmpleado\" was not injected: check your FXML file 'MenuEmpleadoAdministrador.fxml'.";

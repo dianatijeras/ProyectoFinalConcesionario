@@ -27,10 +27,7 @@ public class ClienteViewController {
     private Button btn_AgregarCliente;
 
     @FXML
-    private Button btn_BuscarCliente;
-
-    @FXML
-    private Button btn_EliminarCliente;
+    private Button btn_BuscarOEliminarCliente;
 
     @FXML
     private Button btn_Volver;
@@ -106,6 +103,12 @@ public class ClienteViewController {
     }
 
     @FXML
+    void onClick_BuscarOEliminarCliente(ActionEvent event) {
+        abrirVentana();
+
+    }
+
+    @FXML
     void onClick_BuscarCliente(ActionEvent event) {
         /**
         String cedula = txf_CedulaCliente.getText();
@@ -134,21 +137,42 @@ public class ClienteViewController {
     }
     public void volverAVentanaAnterior() {
         try {
-            // Cargar el archivo FXML de InicioViewController
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
             Parent root = loader.load();
 
-            // Obtener el Stage actual
+
             Stage currentStage = (Stage) (btn_Volver).getScene().getWindow();
 
-            // Configurar la nueva escena
+
             Scene scene = new Scene(root);
             currentStage.setScene(scene);
             currentStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar el error en caso de que el archivo FXML no se cargue
+
+        }
+    }
+
+    @FXML
+    private void abrirVentana() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuBuscarOEliminarCliente.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_BuscarOEliminarCliente.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -167,8 +191,7 @@ public class ClienteViewController {
     @FXML
     void initialize() {
         assert btn_AgregarCliente != null : "fx:id=\"btn_AgregarCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";
-        assert btn_BuscarCliente != null : "fx:id=\"btn_BuscarCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";
-        assert btn_EliminarCliente != null : "fx:id=\"btn_EliminarCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";
+        assert btn_BuscarOEliminarCliente != null : "fx:id=\"btn_BuscarOEliminarCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuCliente.fxml'.";
         assert lbl_CedulaCliente != null : "fx:id=\"lbl_CedulaCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";
         assert lbl_Cliente != null : "fx:id=\"lbl_Cliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";

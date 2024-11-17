@@ -51,7 +51,7 @@ public class AdministradorViewController {
 
     @FXML
     void onClick_CerrarSesionAdministrador(ActionEvent event) {
-
+        volverInicio();
     }
 
     @FXML
@@ -82,7 +82,7 @@ public class AdministradorViewController {
     private void cambiarVentana() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleadoAdministrador.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -153,6 +153,26 @@ public class AdministradorViewController {
             stage.setScene(scene);
 
             Stage currentStage = (Stage) (btn_Vehiculos.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void volverInicio() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicio.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_CerrarSesionAdministrador.getScene().getWindow());
             currentStage.close();
 
             stage.show();

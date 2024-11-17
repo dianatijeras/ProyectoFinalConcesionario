@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class InicioSesionEmpleadoViewController {
+public class InicioSesionViewController {
 
     @FXML
     private ResourceBundle resources;
@@ -29,7 +28,7 @@ public class InicioSesionEmpleadoViewController {
     private Button btn_VolverMenuInicio;
 
     @FXML
-    private Button btn_iniciarSesionEmpleado;
+    private Button btn_iniciarSesion;
 
     @FXML
     private Label lbl_contrasenia;
@@ -76,10 +75,36 @@ public class InicioSesionEmpleadoViewController {
         if ("Empleado".equals(usuario) && "1234".equals(contrasenia)) {
             System.out.println("Inicio de sesión exitoso");
             cambiarVentana(event);
+        } else if ("Admin".equals(usuario) && "1".equals(contrasenia)) {
+            System.out.println("Inicio de sesión exitoso para Administrador");
+            cambiarVentana1(event);
         } else {
             System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
         }
     }
+    @FXML
+    private void cambiarVentana1(ActionEvent event) {
+        try {
+            // Carga la nueva vista
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuAdministrador.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+
+            Stage currentStage = (Stage) (btn_iniciarSesion).getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void cambiarVentana(ActionEvent event) {
@@ -94,7 +119,7 @@ public class InicioSesionEmpleadoViewController {
             stage.setScene(scene);
 
 
-            Stage currentStage = (Stage) (btn_iniciarSesionEmpleado).getScene().getWindow();
+            Stage currentStage = (Stage) (btn_iniciarSesion).getScene().getWindow();
             currentStage.close();
 
             stage.show();
@@ -126,15 +151,15 @@ public class InicioSesionEmpleadoViewController {
 
     @FXML
     void initialize() {
-        assert btn_VolverMenuInicio != null : "fx:id=\"btn_VolverMenuInicio\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert btn_iniciarSesionEmpleado != null : "fx:id=\"btn_iniciarSesionEmpleado\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert lbl_contrasenia != null : "fx:id=\"lbl_contrasenia\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert lbl_tituloInicioSseion != null : "fx:id=\"lbl_tituloInicioSseion\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert lbl_usuario != null : "fx:id=\"lbl_usuario\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert pn_MenuEmpleado != null : "fx:id=\"pn_MenuEmpleado\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert sp_sepracionTitulo != null : "fx:id=\"sp_sepracionTitulo\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert txf_ingresoContrasenia != null : "fx:id=\"txf_ingresoContrasenia\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
-        assert txf_ingresoUsuario != null : "fx:id=\"txf_ingresoUsuario\" was not injected: check your FXML file 'MenuInicioSesionEmpleado.fxml'.";
+        assert btn_VolverMenuInicio != null : "fx:id=\"btn_VolverMenuInicio\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert btn_iniciarSesion != null : "fx:id=\"btn_iniciarSesionEmpleado\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert lbl_contrasenia != null : "fx:id=\"lbl_contrasenia\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert lbl_tituloInicioSseion != null : "fx:id=\"lbl_tituloInicioSseion\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert lbl_usuario != null : "fx:id=\"lbl_usuario\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert pn_MenuEmpleado != null : "fx:id=\"pn_MenuEmpleado\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert sp_sepracionTitulo != null : "fx:id=\"sp_sepracionTitulo\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert txf_ingresoContrasenia != null : "fx:id=\"txf_ingresoContrasenia\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
+        assert txf_ingresoUsuario != null : "fx:id=\"txf_ingresoUsuario\" was not injected: check your FXML file 'MenuInicioSesion.fxml'.";
 
     }
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pn_MenuTransaccion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="251.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.BuscarTransaccion">
+   <children>
+      <Label fx:id="lbl_Transaccion" layoutX="31.0" layoutY="23.0" text="Transaccion" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_IDTransaccion" layoutX="38.0" layoutY="93.0" text="ID Transaccion" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txf_IDTransaccion" layoutX="38.0" layoutY="114.0" />
+      <Separator fx:id="sp_Titulo" layoutX="26.0" layoutY="65.0" prefHeight="0.0" prefWidth="200.0" />
+      <Button fx:id="btn_BuscarTransaccion" layoutX="88.0" layoutY="164.0" mnemonicParsing="false" onAction="#onClick_BuscarTransaccion" prefHeight="25.0" prefWidth="67.0" text="Buscar" />
+      <Button fx:id="btn_Volver" layoutX="47.0" layoutY="223.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: grey;" text="Volver" textFill="WHITE" />
+   </children>
+</Pane>

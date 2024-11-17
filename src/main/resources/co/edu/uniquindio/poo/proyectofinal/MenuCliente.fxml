@@ -46,8 +46,7 @@
       <TextField fx:id="txf_DireccionCliente" layoutX="19.0" layoutY="256.0" onAction="#OnMousePressed_DireccionCliente" prefHeight="25.0" prefWidth="200.0" />
       <TextField fx:id="txf_EmailCliente" layoutX="18.0" layoutY="307.0" onAction="#OnMousePressed_EmailCliente" prefHeight="25.0" prefWidth="200.0" />
       <Button fx:id="btn_AgregarCliente" layoutX="20.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClick_agregarCliente" text="Agregar" />
-      <Button fx:id="btn_EliminarCliente" layoutX="90.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClick_EliminarCliente" text="Eliminar" />
-      <Button fx:id="btn_BuscarCliente" layoutX="159.0" layoutY="369.0" mnemonicParsing="false" onAction="#onClick_BuscarCliente" prefHeight="25.0" prefWidth="59.0" text="Buscar" />
+      <Button fx:id="btn_BuscarOEliminarCliente" layoutX="90.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClick_BuscarOEliminarCliente" prefHeight="25.0" prefWidth="128.0" text="Eliminar o Buscar" />
       <Separator fx:id="sp_botones" layoutX="19.0" layoutY="348.0" prefHeight="3.0" prefWidth="280.0" />
       <Button fx:id="btn_Volver" layoutX="19.0" layoutY="440.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: grey;" text="Volver" textFill="WHITE" />
       <Separator fx:id="sp_botones1" layoutX="19.0" layoutY="417.0" prefHeight="3.0" prefWidth="280.0" />

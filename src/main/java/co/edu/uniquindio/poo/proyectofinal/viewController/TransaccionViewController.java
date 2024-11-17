@@ -3,7 +3,6 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import co.edu.uniquindio.poo.proyectofinal.controller.TransaccionController;
 import co.edu.uniquindio.poo.proyectofinal.model.TipoTransaccion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -102,6 +101,7 @@ public class TransaccionViewController {
 
     @FXML
     void onClick_BuscarTransaccion(ActionEvent event) {
+        buscarTransaccion();
 
     }
 
@@ -136,28 +136,30 @@ public class TransaccionViewController {
         }
     }
 
+    public void buscarTransaccion() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuBuscarTransaccion.fxml"));
+            Parent root = loader.load();
+
+
+            Stage currentStage = (Stage) (btn_BuscarTransaccion).getScene().getWindow();
+
+
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+
 
     @FXML
     void initialize() {
-        assert btn_BuscarTransaccion != null : "fx:id=\"btn_BuscarTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert btn_RealizarTransaccion != null : "fx:id=\"btn_RealizarTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert cb_TipoTransaccion != null : "fx:id=\"cb_TipoTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_ClienteTransaccion != null : "fx:id=\"lbl_ClienteTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_FechaTransaccion != null : "fx:id=\"lbl_FechaTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_IDTransaccion != null : "fx:id=\"lbl_IDTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_Monto != null : "fx:id=\"lbl_Monto\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_Transaccion != null : "fx:id=\"lbl_Transaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_VehiculoTransaccion != null : "fx:id=\"lbl_VehiculoTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert lbl_tipoTransaccion != null : "fx:id=\"lbl_tipoTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert pn_menuTransaccion != null : "fx:id=\"pn_menuTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert sp_botones != null : "fx:id=\"sp_botones\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert sp_separacionTitulo != null : "fx:id=\"sp_separacionTitulo\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert txf_ClienteTransaccion != null : "fx:id=\"txf_ClienteTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert txf_FechaTransaccion != null : "fx:id=\"txf_FechaTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert txf_IDTransaccion != null : "fx:id=\"txf_IDTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-        assert txf_VehiculoTransaccion != null : "fx:id=\"txf_VehiculoTransaccion\" was not injected: check your FXML file 'MenuTransaccion.fxml'.";
-
+        cb_TipoTransaccion.getItems().addAll(TipoTransaccion.values());
     }
 
 }

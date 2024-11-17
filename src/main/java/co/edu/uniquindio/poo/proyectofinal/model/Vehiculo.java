@@ -180,4 +180,9 @@ public class Vehiculo {
         this.tipoCombustible = tipoCombustible;
     }
 
+    @Override
+    public String toString() {
+        return marca + " - " + placa;
+    }
+
 }

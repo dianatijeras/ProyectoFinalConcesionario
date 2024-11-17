@@ -15,15 +15,11 @@
          </font>
       </Label>
       <Separator fx:id="sp_separacionMenuInicio" layoutX="17.0" layoutY="99.0" prefHeight="0.0" prefWidth="264.0" />
-      <Button fx:id="btn_botonIngresarEmpleado" layoutX="103.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickIngresarEmpleado" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: white;" text="Empleado">
+      <Button fx:id="btn_botonIniciarSesion" layoutX="103.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickIniciarSesion" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: white;" text="Iniciar Sesion">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btn_ingresarAdministrador" layoutX="103.0" layoutY="199.0" mnemonicParsing="false" onAction="#onClickIngresarAdministrador" style="-fx-background-color: white;" text="Administrador">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Label fx:id="lbl_subtituloMenuInicio" layoutX="102.0" layoutY="119.0" text="ingrese como:" textFill="WHITE">
+      <Label fx:id="lbl_subtituloMenuInicio" layoutX="123.0" layoutY="125.0" text="ingrese:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

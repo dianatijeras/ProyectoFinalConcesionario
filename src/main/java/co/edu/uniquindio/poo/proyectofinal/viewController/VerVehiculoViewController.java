@@ -1,15 +1,20 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class VerVehiculoViewController {
 
@@ -42,7 +47,26 @@ public class VerVehiculoViewController {
 
     @FXML
     void onClick_Volver(ActionEvent event) {
+        volverAAdministrador();
 
+    }
+    public void volverAAdministrador() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuAdministrador.fxml"));
+            Parent root = loader.load();
+
+            Stage currentStage = (Stage) (btn_Volver).getScene().getWindow();
+
+
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 
     @FXML

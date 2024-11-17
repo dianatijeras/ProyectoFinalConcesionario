@@ -25,10 +25,7 @@ public class InicioViewController {
     private URL location;
 
     @FXML
-    private Button btn_botonIngresarEmpleado;
-
-    @FXML
-    private Button btn_ingresarAdministrador;
+    private Button btn_botonIniciarSesion;
 
     @FXML
     private ImageView img_logoUQ;
@@ -46,34 +43,26 @@ public class InicioViewController {
     private Separator sp_separacionMenuInicio;
 
     @FXML
-    void onClickIngresarAdministrador(ActionEvent event) {
+    void onClickIniciarSesion(ActionEvent event) {
         cambiarVentana();
-    }
 
-    @FXML
-    void onClickIngresarEmpleado(ActionEvent event) {
-        cambiarVentana();
     }
 
 
     @FXML private void cambiarVentana() {
              try {
-                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicioSesionEmpleado.fxml"));
+                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicioSesion.fxml"));
                  Parent root = loader.load();
                  Scene scene = new Scene(root);
 
                  Stage stage = new Stage();
                  stage.setScene(scene);
 
-                 Stage close = (Stage) btn_botonIngresarEmpleado.getScene().getWindow();
+                 Stage close = (Stage) btn_botonIniciarSesion.getScene().getWindow();
                  close.close();
 
                  stage.show();
-                 //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-                 //Parent root = loader.load();
-                 //Stage stage = (Stage) pn_PantallaInicio.getScene().getWindow();
-                 //Scene scene = new Scene(root); stage.setScene(scene);
-                 //stage.show();
+
              } catch (IOException e)
              { e.printStackTrace();
              }
@@ -81,8 +70,7 @@ public class InicioViewController {
 
     @FXML
     void initialize() {
-        assert btn_botonIngresarEmpleado != null : "fx:id=\"btn_botonIngresarEmpleado\" was not injected: check your FXML file 'menuInicio.fxml'.";
-        assert btn_ingresarAdministrador != null : "fx:id=\"btn_ingresarAdministrador\" was not injected: check your FXML file 'menuInicio.fxml'.";
+        assert btn_botonIniciarSesion != null : "fx:id=\"btn_botonIniciarSesion\" was not injected: check your FXML file 'menuInicio.fxml'.";
         assert img_logoUQ != null : "fx:id=\"img_logoUQ\" was not injected: check your FXML file 'menuInicio.fxml'.";
         assert lbl_subtituloMenuInicio != null : "fx:id=\"lbl_subtituloMenuInicio\" was not injected: check your FXML file 'menuInicio.fxml'.";
         assert lbl_tituloMenuInicio != null : "fx:id=\"lbl_tituloMenuInicio\" was not injected: check your FXML file 'menuInicio.fxml'.";
