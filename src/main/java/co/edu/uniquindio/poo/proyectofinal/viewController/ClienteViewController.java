@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
+import co.edu.uniquindio.poo.proyectofinal.controller.ClienteController;
+import co.edu.uniquindio.poo.proyectofinal.model.Cliente;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,6 +79,7 @@ public class ClienteViewController {
 
     @FXML
     private TextField txf_TelefonoCliente;
+    private ClienteController clienteController;
 
     @FXML
     void OnMousePressed_CedulaCliente(ActionEvent event) {
@@ -106,28 +110,6 @@ public class ClienteViewController {
     void onClick_BuscarOEliminarCliente(ActionEvent event) {
         abrirVentana();
 
-    }
-
-    @FXML
-    void onClick_BuscarCliente(ActionEvent event) {
-        /**
-        String cedula = txf_CedulaCliente.getText();
-        Cliente cliente = clienteController.buscarCliente(cedula);
-        if (cliente != null) { txf_NombreCliente.setText(cliente.getNombre());
-            txf_DireccionCliente.setText(cliente.getDireccion());
-            txf_EmailCliente.setText(cliente.getEmail());
-            txf_TelefonoCliente.setText(cliente.getTelefono());
-        }
-    }
-     */
-    }
-
-    @FXML
-    void onClick_EliminarCliente(ActionEvent event) {
-     /**
-        String cedula = txf_CedulaCliente.getText();
-        clienteController.eliminarCliente(cedula); }
-        */
     }
 
     @FXML
@@ -179,15 +161,20 @@ public class ClienteViewController {
 
     @FXML
     void onClick_agregarCliente(ActionEvent event) {
-    /**
-        Cliente cliente = new Cliente( txf_CedulaCliente.getText(),
-                txf_NombreCliente.getText(),
-                txf_DireccionCliente.getText(),
-                txf_EmailCliente.getText(),
-                txf_TelefonoCliente.getText() );
-        clienteController.registrarCliente(cliente);}
-       */
+        String nombre = txf_NombreCliente.getText();
+        String cedula = txf_CedulaCliente.getText();
+        String telefono = txf_TelefonoCliente.getText();
+        String direccion = txf_DireccionCliente.getText();
+        String email = txf_EmailCliente.getText();
+
+        boolean registrado = clienteController.registrarCliente(nombre, cedula, telefono, direccion, email);
+        mostrarMensaje("Registro Cliente", registrado ? "Cliente registrado con éxito" : "Cliente ya existe", registrado);
     }
+
+    private void mostrarMensaje(String registroCliente, String s, boolean registrado) {
+    }
+
+
     @FXML
     void initialize() {
         assert btn_AgregarCliente != null : "fx:id=\"btn_AgregarCliente\" was not injected: check your FXML file 'MenuCliente.fxml'.";

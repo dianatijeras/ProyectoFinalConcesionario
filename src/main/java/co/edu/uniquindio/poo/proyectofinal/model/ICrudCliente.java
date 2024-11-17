@@ -11,8 +11,10 @@ public interface ICrudCliente {
 
     /**
      * Metodo que implementa la clase Concesionario que busca a un cliente
+     *
+     * @return
      */
-    public void buscarCliente(String cedula);
+    public Cliente buscarCliente(String cedula);
 
 
     /**

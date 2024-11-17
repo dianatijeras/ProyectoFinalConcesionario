@@ -263,18 +263,21 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
 
     /**
      * Metodo que busca a un cliente
+     *
      * @param cedula
+     * @return
      */
     @Override
-    public void buscarCliente(String cedula) {
+    public Cliente buscarCliente(String cedula) {
         for(Cliente cliente : listaClientes){
             if(cliente.getCedula().equals(cedula)){
                 System.out.println("Se encontro al cliente: " + cliente);
-                return;
+                return cliente;
             }
         }
 
         System.out.println("No se encontro al cliente");
+        return null;
     }
 
     /**
