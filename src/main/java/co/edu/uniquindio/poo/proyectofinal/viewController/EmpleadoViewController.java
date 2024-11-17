@@ -14,6 +14,8 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class EmpleadoViewController {
 
     @FXML
@@ -21,6 +23,9 @@ public class EmpleadoViewController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Button btn_Volver;
 
     @FXML
     private Button btn_CerrarSesionEmpleado;
@@ -52,31 +57,95 @@ public class EmpleadoViewController {
 
     @FXML
     void onClick_Transaccion(ActionEvent event) {
-
-
+        cambiarVentana2();
     }
 
     @FXML
     void onClick_cliente(ActionEvent event) {
+        cambiarVentana();
     }
 
     @FXML
     void onClick_vehiculo(ActionEvent event) {
+        cambiarVentana3();
+    }
 
+    @FXML
+    void onClick_volver(){
+        volver();
+    }
+
+    @FXML
+    private void volver() {
+        try {
+            // Obtener el Stage actual desde el botón
+            Stage currentStage = (Stage) (btn_Volver.getScene().getWindow());
+
+            // Cerrar la ventana actual
+            currentStage.close();
+
+
+            // El control se devuelve automáticamente a la ventana anterior si sigue abierta.
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
-    private void cambiarVentana(ActionEvent event) {
+    private void cambiarVentana() {
+
         try {
-            // Carga la nueva vista
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuCliente.fxml"));
             Parent root = loader.load();
-
-
             Scene scene = new Scene(root);
+
             Stage stage = new Stage();
             stage.setScene(scene);
 
-            Stage currentStage = (Stage) (btn_Cliente).getScene().getWindow();
+            Stage currentStage = (Stage) (btn_Cliente.getScene().getWindow());
+            currentStage.close();
+
+            stage.show();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+        @FXML
+        private void cambiarVentana2() {
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuTransaccion.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+
+                Stage stage = new Stage();
+                stage.setScene(scene);
+
+                Stage currentStage = (Stage) (btn_Transaccion.getScene().getWindow());
+                currentStage.close();
+
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        @FXML
+        private void cambiarVentana3() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuVehiculo.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+
+            Stage currentStage = (Stage) (btn_Vehiculo.getScene().getWindow());
             currentStage.close();
 
             stage.show();
@@ -86,7 +155,8 @@ public class EmpleadoViewController {
         }
     }
 
-   /**
+
+    /**
     @FXML private void cambiarVentana(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

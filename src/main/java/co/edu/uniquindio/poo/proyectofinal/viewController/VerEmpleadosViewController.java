@@ -49,7 +49,8 @@ public class VerEmpleadosViewController {
 
     @FXML
     void onClick_Volver(ActionEvent event) {
-
+        initialize();
+        ;
     }
 
     @FXML

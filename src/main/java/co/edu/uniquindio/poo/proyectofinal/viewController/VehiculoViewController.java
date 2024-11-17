@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 public class VehiculoViewController {
-
+//breve espere miro lo d fox q esta perdido ale
     @FXML
     private ResourceBundle resources;
 
