@@ -3,6 +3,9 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,13 +40,13 @@ public class VerVehiculosViewController {
     private Separator sp_titulo;
 
     @FXML
-    private TableView<?> tb_VerVehiculo;
+    private TableView<Vehiculo> tb_VerVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_MarcaVehiculo;
+    private TableColumn<Vehiculo, String> tbc_MarcaVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_PlacaVehiculo;
+    private TableColumn<Vehiculo, String> tbc_PlacaVehiculo;
 
     @FXML
     void onClick_Volver(ActionEvent event) {
@@ -71,6 +74,9 @@ public class VerVehiculosViewController {
 
     @FXML
     void initialize() {
+        tbc_MarcaVehiculo.setCellValueFactory(cellData -> cellData.getValue().marcaProperty());
+        tbc_PlacaVehiculo.setCellValueFactory(cellData -> cellData.getValue().placaProperty());
+        tb_VerVehiculo.getItems().setAll(HelloApplication.getVehiculos());
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert lbl_VerVehiculos != null : "fx:id=\"lbl_VerVehiculos\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert pn_MenuVerVehiculos != null : "fx:id=\"pn_MenuVerVehiculos\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";

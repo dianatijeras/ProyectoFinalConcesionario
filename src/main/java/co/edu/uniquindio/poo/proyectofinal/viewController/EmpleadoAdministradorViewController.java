@@ -3,6 +3,9 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -140,6 +143,14 @@ public class EmpleadoAdministradorViewController {
             e.printStackTrace();
             // Manejar el error en caso de que el archivo FXML no se cargue
         }
+    }
+
+    public void agregarEmpleado() {
+        Empleado empleado = new Empleado();
+
+        empleado.setNombre(txf_NombreEmpleado.getText());
+
+        HelloApplication.getEmpleados().add(empleado);
     }
 
     @FXML

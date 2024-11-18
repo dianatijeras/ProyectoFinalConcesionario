@@ -1,7 +1,13 @@
 package co.edu.uniquindio.poo.proyectofinal.controller;
 
 import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EmpleadoController {
     private Stage stageActual;
@@ -24,7 +30,7 @@ public class EmpleadoController {
 
     private void cambiarVentana(Stage stageActual, String rutaFXML) {
         try {
-            FXML.Loader loader = new FXML.Loader(getClass().getResource(rutaFXML));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -45,7 +51,4 @@ public class EmpleadoController {
         alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
-}
-
-
 }

@@ -2,14 +2,14 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
 import co.edu.uniquindio.poo.proyectofinal.controller.VehiculoController;
-import co.edu.uniquindio.poo.proyectofinal.model.Estado;
-import co.edu.uniquindio.poo.proyectofinal.model.TipoCombustible;
-import co.edu.uniquindio.poo.proyectofinal.model.TipoTransmicion;
-import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
+import co.edu.uniquindio.poo.proyectofinal.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +51,7 @@ public class VehiculoViewController {
     private ComboBox<TipoTransmicion> cb_TipoTransmicionVehiculo;
 
     @FXML
-    private ComboBox<Vehiculo> cb_TipoVehiculo;
+    private ComboBox<TipoVehiculo> cb_TipoVehiculo;
 
     @FXML
     private Label lbl_CambiosVehiculo;
@@ -119,6 +119,8 @@ public class VehiculoViewController {
     @FXML
     private TextField txf_VelocidadMaximaVehiculo;
 
+    private HelloApplication application;
+
     @FXML
     void OnMousePresse_CambiosVehiculo(ActionEvent event) {
 
@@ -151,7 +153,8 @@ public class VehiculoViewController {
 
     @FXML
     void onClick_AgregarVehiculo(ActionEvent event) {
-
+        agregar();
+        System.out.println(HelloApplication.getVehiculos().size());
     }
 
     @FXML
@@ -229,6 +232,31 @@ public class VehiculoViewController {
         }
     }
 
+    public void agregar(){
+        Vehiculo vehiculo = null;
+
+        TipoVehiculo tipo = cb_TipoVehiculo.getSelectionModel().getSelectedItem();
+
+        switch (tipo.name()){
+            case "VehiculoElectrico":
+                vehiculo = new VehiculoElectrico();
+                break;
+            case "VehiculoHibrido":
+                vehiculo = new VehiculoHibrido();
+            case "VehiculoCombustible":
+                vehiculo = new VehiculoCombustible();
+        }
+
+        if (vehiculo != null){
+            vehiculo.setMarca(txf_MarcaVehiculo.getText());
+            vehiculo.setPlaca(txf_PlacaVehiculo.getText());
+            System.out.println(vehiculo);
+            HelloApplication.getVehiculos().add(vehiculo);
+        }
+
+
+    }
+
 
     @FXML
     void initialize() {
@@ -236,5 +264,6 @@ public class VehiculoViewController {
 
         cb_TipoTransmicionVehiculo.getItems().addAll(TipoTransmicion.values());
         cb_TipoCombustibleVehiculo.getItems().addAll(TipoCombustible.values());
+        cb_TipoVehiculo.getItems().addAll(TipoVehiculo.values());
     }
 }

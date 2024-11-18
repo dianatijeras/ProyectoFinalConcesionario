@@ -3,6 +3,10 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
+import co.edu.uniquindio.poo.proyectofinal.model.Persona;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,19 +42,19 @@ public class VerEmpleadosViewController {
     private Separator sp_titulo;
 
     @FXML
-    private TableView<?> tb_VerEmpleado;
+    private TableView<Empleado> tb_VerEmpleado;
 
     @FXML
-    private TableColumn<?, ?> tbc_IDEmpleado;
+    private TableColumn<Empleado, String> tbc_IDEmpleado;
 
     @FXML
-    private TableColumn<?, ?> tbc_NombreEmpleado;
+    private TableColumn<Empleado, String> tbc_NombreEmpleado;
 
     @FXML
-    private TableColumn<?, ?> tcb_CorreoEmpleado;
+    private TableColumn<Empleado, String> tcb_CorreoEmpleado;
 
     @FXML
-    private TableColumn<?, ?> tcb_TelefonoEmpleado;
+    private TableColumn<Empleado, String> tcb_TelefonoEmpleado;
 
     @FXML
     void onClick_Volver(ActionEvent event) {
@@ -79,6 +83,15 @@ public class VerEmpleadosViewController {
 
     @FXML
     void initialize() {
+        tbc_IDEmpleado.setCellValueFactory(cellData -> cellData.getValue().idEmpleadoProperty());
+        tbc_NombreEmpleado.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
+        tcb_CorreoEmpleado.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
+        tcb_TelefonoEmpleado.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
+        tb_VerEmpleado.getItems().setAll(HelloApplication.getEmpleados().stream()
+                .filter(e -> e instanceof Empleado)
+                .map(e -> (Empleado) e)
+                .toList());
+
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert lbl_VerEmpleados != null : "fx:id=\"lbl_VerEmpleados\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert pn_MenuVerEmpleados != null : "fx:id=\"pn_MenuVerEmpleados\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";

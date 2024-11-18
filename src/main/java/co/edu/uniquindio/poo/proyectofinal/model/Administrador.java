@@ -31,6 +31,9 @@ public class Administrador extends Persona {
         this.username = username;
     }
 
+    public Administrador() {
+    }
+
     /**
      * Metodo que obtiene el salario del Administrador
      * @return

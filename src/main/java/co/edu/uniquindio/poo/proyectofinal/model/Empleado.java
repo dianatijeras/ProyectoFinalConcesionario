@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -7,7 +10,7 @@ public class Empleado extends Persona{
 
     private double salario;
     private String contrasenia;
-    private String idEmpleado;
+    private StringProperty idEmpleado;
     private String username;
     private Vehiculo vehiculo;
     private Collection<Vehiculo> listaRegistrosVehiculos;
@@ -28,12 +31,15 @@ public class Empleado extends Persona{
         super(nombre, cedula, telefono, direccion);
         this.salario = salario;
         this.contrasenia = contrasenia;
-        this.idEmpleado = idEmpleado;
+        this.idEmpleado = new SimpleStringProperty(idEmpleado);
         this.username = username;
         this.vehiculo = vehiculo;
         this.listaRegistrosVehiculos = new LinkedList<>();
     }
 
+    public Empleado() {
+        this.idEmpleado = new SimpleStringProperty("");
+    }
 
     /**
      * Metodo que obtiene el salario de un empleado
@@ -72,7 +78,7 @@ public class Empleado extends Persona{
      * @return
      */
     public String getIdEmpleado() {
-        return idEmpleado;
+        return idEmpleado.get();
     }
 
     /**
@@ -80,7 +86,11 @@ public class Empleado extends Persona{
      * @param idEmpleado
      */
     public void setIdEmpleado(String idEmpleado) {
-        this.idEmpleado = idEmpleado;
+        this.idEmpleado.set(idEmpleado);
+    }
+
+    public StringProperty idEmpleadoProperty() {
+        return idEmpleado;
     }
 
     /**

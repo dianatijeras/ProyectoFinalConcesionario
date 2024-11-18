@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Administrador;
+import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
+import co.edu.uniquindio.poo.proyectofinal.model.Persona;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,14 +76,23 @@ public class InicioSesionViewController {
         String usuario = txf_ingresoUsuario.getText();
         String contrasenia = txf_ingresoContrasenia.getText();
 
-        if ("Empleado".equals(usuario) && "1234".equals(contrasenia)) {
-            System.out.println("Inicio de sesión exitoso");
-            cambiarVentana(event);
-        } else if ("Admin".equals(usuario) && "1".equals(contrasenia)) {
-            System.out.println("Inicio de sesión exitoso para Administrador");
-            cambiarVentana1(event);
-        } else {
-            System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
+        for (Persona persona : HelloApplication.getEmpleados()){
+            if (persona.getClass().equals(Empleado.class)){
+                if (((Empleado) persona).getUsername().equals(usuario) && ((Empleado) persona).getContrasenia().equals(contrasenia)){
+                    cambiarVentana(event);
+                    break;
+                }
+            }
+
+            if (persona.getClass().equals(Administrador.class)){
+                if (((Administrador) persona).getUsername().equals(usuario) && ((Administrador) persona).getContrasenia().equals(contrasenia)){
+                    cambiarVentana1(event);
+                    break;
+                }
+            } else {
+                System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
+            }
+
         }
     }
     @FXML

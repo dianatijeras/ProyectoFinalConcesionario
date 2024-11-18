@@ -1,9 +1,12 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Vehiculo {
 
-    private String marca;
-    private String placa;
+    private StringProperty  marca;
+    private StringProperty placa;
     private String modelo;
     private int cambios;
     private int cilindraje;
@@ -25,8 +28,8 @@ public class Vehiculo {
      * @param tipoCombustible
      */
     public Vehiculo(String marca, String placa, String modelo, int cambios, int cilindraje, int velocidadMax, Estado estado, TipoTransmicion tipoTransmicion, TipoCombustible tipoCombustible) {
-        this.marca = marca;
-        this.placa = placa;
+        this.marca = new SimpleStringProperty(marca);
+        this.placa = new SimpleStringProperty(placa);
         this.modelo = modelo;
         this.cambios = cambios;
         this.cilindraje = cilindraje;
@@ -36,12 +39,26 @@ public class Vehiculo {
         this.tipoCombustible = tipoCombustible;
     }
 
+    public Vehiculo() {
+        this.marca = new SimpleStringProperty("");
+        this.placa = new SimpleStringProperty("");
+    }
+
+    public StringProperty marcaProperty() {
+        return marca;
+    }
+
+    public StringProperty placaProperty() {
+        return placa;
+    }
+
+
     /**
      * Metodo que obtiene la marca de un vehiculo
      * @return
      */
     public String getMarca() {
-        return marca;
+        return marca.get();
     }
 
     /**
@@ -49,7 +66,7 @@ public class Vehiculo {
      * @param marca
      */
     public void setMarca(String marca) {
-        this.marca = marca;
+        this.marca.set(marca);
     }
 
     /**
@@ -57,7 +74,7 @@ public class Vehiculo {
      * @return
      */
     public String getPlaca() {
-        return placa;
+        return placa.get();
     }
 
     /**
@@ -65,7 +82,7 @@ public class Vehiculo {
      * @param placa
      */
     public void setPlaca(String placa) {
-        this.placa = placa;
+        this.placa.set(placa);
     }
 
     /**

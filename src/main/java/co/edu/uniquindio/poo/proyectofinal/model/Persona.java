@@ -1,11 +1,14 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Persona {
 
-    private String nombre;
+    private StringProperty nombre;
     private String cedula;
-    private String telefono;
-    private String direccion;
+    private StringProperty telefono;
+    private StringProperty direccion;
 
     /**
      * Constructor de la clase padre Persona
@@ -15,10 +18,16 @@ public class Persona {
      * @param direccion
      */
     public Persona(String nombre, String cedula, String telefono, String direccion) {
-        this.nombre = nombre;
+        this.nombre = new SimpleStringProperty(nombre);
         this.cedula = cedula;
-        this.telefono = telefono;
-        this.direccion = direccion;
+        this.telefono = new SimpleStringProperty(telefono);
+        this.direccion = new SimpleStringProperty(direccion);
+    }
+
+    public Persona() {
+        this.nombre = new SimpleStringProperty("");
+        this.telefono = new SimpleStringProperty("");
+        this.direccion = new SimpleStringProperty("");
     }
 
     /**
@@ -26,6 +35,10 @@ public class Persona {
      * @return
      */
     public String getNombre() {
+        return nombre.get();
+    }
+
+    public StringProperty nombreProperty() {
         return nombre;
     }
 
@@ -34,7 +47,7 @@ public class Persona {
      * @param nombre
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre.set(nombre);
     }
 
     /**
@@ -58,7 +71,7 @@ public class Persona {
      * @return
      */
     public String getTelefono() {
-        return telefono;
+        return telefono.get();
     }
 
     /**
@@ -66,7 +79,11 @@ public class Persona {
      * @param telefono
      */
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        this.telefono.set(telefono);
+    }
+
+    public StringProperty telefonoProperty() {
+        return telefono;
     }
 
     /**
@@ -74,7 +91,7 @@ public class Persona {
      * @return
      */
     public String getDireccion() {
-        return direccion;
+        return direccion.get();
     }
 
     /**
@@ -82,6 +99,10 @@ public class Persona {
      * @param direccion
      */
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion.set(direccion);
+    }
+
+    public StringProperty direccionProperty() {
+        return direccion;
     }
 }

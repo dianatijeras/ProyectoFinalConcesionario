@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
-public class VehiculoElectrico extends Vehiculo{
+public class VehiculoElectrico extends Vehiculo {
 
     private int autonomiaCargaCompleta;
     private int tiempoCargaPromedio;
@@ -23,6 +23,9 @@ public class VehiculoElectrico extends Vehiculo{
         super(marca, placa, modelo, cambios, cilindraje, velocidadMax, estado, tipoTransmicion, tipoCombustible);
         this.autonomiaCargaCompleta = autonomiaCargaCompleta;
         this.tiempoCargaPromedio = tiempoCargaPromedio;
+    }
+
+    public VehiculoElectrico() {
     }
 
     /**

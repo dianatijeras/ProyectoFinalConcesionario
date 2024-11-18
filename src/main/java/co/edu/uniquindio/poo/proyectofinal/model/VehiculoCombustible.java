@@ -22,6 +22,9 @@ public class VehiculoCombustible extends Vehiculo{
         this.capacidadTanque = capacidadTanque;
     }
 
+    public VehiculoCombustible() {
+    }
+
     /**
      * Metodo que obtiene la capacidad del tanque de un vehiculo a combustible
      * @return

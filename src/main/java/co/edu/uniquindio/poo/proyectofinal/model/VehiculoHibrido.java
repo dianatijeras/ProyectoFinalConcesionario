@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+
 public class VehiculoHibrido extends Vehiculo{
 
     private boolean esEnchufable;
@@ -23,6 +24,9 @@ public class VehiculoHibrido extends Vehiculo{
         super(marca, placa, modelo, cambios, cilindraje, velocidadMax, estado, tipoTransmicion, tipoCombustible);
         this.esEnchufable = esEnchufable;
         this.esHibridoLiguero = esHibridoLiguero;
+    }
+
+    public VehiculoHibrido() {
     }
 
     /**
