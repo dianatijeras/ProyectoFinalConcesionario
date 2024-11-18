@@ -10,7 +10,7 @@
 
 <Pane fx:id="pn_MenuVerVehiculos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="774.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.VerVehiculosViewController">
    <children>
-      <Label fx:id="lbl_VerVehiculos" layoutX="333.0" layoutY="47.0" text="Ver Vehiculos">
+      <Label fx:id="lbl_VerVehiculos" layoutX="334.0" layoutY="44.0" text="Ver Vehiculos">
          <font>
             <Font size="18.0" />
          </font>
