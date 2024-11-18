@@ -24,6 +24,9 @@ public class MotoHibrida extends VehiculoHibrido implements ICalcularCostoTotal{
         this.anioFabricacion = anioFabricacion;
     }
 
+    public MotoHibrida() {
+    }
+
     /**
      * Metodo que obtiene el año de fabricacion de una moto
      * @return
