@@ -140,4 +140,20 @@ public class Empleado extends Persona{
     public void setListaRegistrosVehiculos(Collection<Vehiculo> listaRegistrosVehiculos) {
         this.listaRegistrosVehiculos = listaRegistrosVehiculos;
     }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "salario=" + salario +
+                ", contrasenia='" + contrasenia + '\'' +
+                ", idEmpleado=" + idEmpleado +
+                ", username='" + username + '\'' +
+                ", vehiculo=" + vehiculo +
+                ", listaRegistrosVehiculos=" + listaRegistrosVehiculos +
+                '}';
+    }
 }

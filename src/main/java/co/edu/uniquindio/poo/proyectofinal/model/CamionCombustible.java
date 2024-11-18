@@ -38,6 +38,9 @@ public class CamionCombustible extends VehiculoCombustible implements ICalcularC
         this.tipoCamion = tipoCamion;
     }
 
+    public CamionCombustible() {
+    }
+
     /**
      * Metodo que obtiene la capacidad de carga de un camion
      * @return

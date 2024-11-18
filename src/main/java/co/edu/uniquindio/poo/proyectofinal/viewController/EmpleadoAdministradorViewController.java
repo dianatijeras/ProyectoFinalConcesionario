@@ -112,12 +112,33 @@ public class EmpleadoAdministradorViewController {
 
     @FXML
     void onClick_AgregarEmpleado(ActionEvent event) {
+        agregarEmpleado();
 
     }
 
     @FXML
     void onClick_BuscarOEliminarEmpleado(ActionEvent event) {
+        ventanaBuscar();
 
+    }
+    public void ventanaBuscar() {
+        try {
+            // Cargar el archivo FXML de InicioViewController
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuBuscarOEliminarEmpleadoAdministrador.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el Stage actual
+            Stage currentStage = (Stage) (btn_BuscarOEliminarEmpleado).getScene().getWindow();
+
+            // Configurar la nueva escena
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+            currentStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Manejar el error en caso de que el archivo FXML no se cargue
+        }
     }
 
     @FXML
@@ -147,10 +168,21 @@ public class EmpleadoAdministradorViewController {
 
     public void agregarEmpleado() {
         Empleado empleado = new Empleado();
-
         empleado.setNombre(txf_NombreEmpleado.getText());
+        empleado.setCedula(txf_CedulaEmpleado.getText());
+        empleado.setDireccion(txf_DireccionEmpleado.getText());
+        empleado.setTelefono(txf_TelefonoEmpleado.getText());
+        empleado.setSalario(Double.parseDouble(txf_SalarioEmpleado.getText()));
+        empleado.setIdEmpleado(txf_IDEmpleado.getText());
 
         HelloApplication.getEmpleados().add(empleado);
+        txf_CedulaEmpleado.setText("");
+        txf_DireccionEmpleado.setText("");
+        txf_IDEmpleado.setText("");
+        txf_NombreEmpleado.setText("");
+        txf_SalarioEmpleado.setText("");
+        txf_TelefonoEmpleado.setText("");
+        txf_IDEmpleado.setText("");
     }
 
     @FXML

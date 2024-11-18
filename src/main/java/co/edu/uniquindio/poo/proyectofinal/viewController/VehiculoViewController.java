@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.controller.ClienteController;
 import co.edu.uniquindio.poo.proyectofinal.controller.VehiculoController;
 import co.edu.uniquindio.poo.proyectofinal.model.*;
 import javafx.event.ActionEvent;
@@ -24,7 +25,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class VehiculoViewController {
-    private VehiculoController vehiculoController;
+    private VehiculoController vehiculoController = new VehiculoController();
+
 
     @FXML
     private ResourceBundle resources;
@@ -232,17 +234,24 @@ public class VehiculoViewController {
         }
     }
 
+
+
+
+
     public void agregar(){
         Vehiculo vehiculo = null;
 
         TipoVehiculo tipo = cb_TipoVehiculo.getSelectionModel().getSelectedItem();
+        TipoCombustible tipoCombustible = cb_TipoCombustibleVehiculo.getSelectionModel().getSelectedItem();
 
-        switch (tipo.name()){
-            case "VehiculoElectrico":
-                vehiculo = new VehiculoElectrico();
+        switch (tipoCombustible.name()){
+            case "DIESEL":
+                vehiculo = new CamionCombustible();
                 break;
-            case "VehiculoHibrido":
-                vehiculo = new VehiculoHibrido();
+            case "GASOLINA":
+                if (tipo.name().equals("Bus")){
+                    vehiculo = new BusCombustible();
+                }
             case "VehiculoCombustible":
                 vehiculo = new VehiculoCombustible();
         }
@@ -250,9 +259,11 @@ public class VehiculoViewController {
         if (vehiculo != null){
             vehiculo.setMarca(txf_MarcaVehiculo.getText());
             vehiculo.setPlaca(txf_PlacaVehiculo.getText());
-            System.out.println(vehiculo);
-            HelloApplication.getVehiculos().add(vehiculo);
+            vehiculo.setTipoCombustible(cb_TipoCombustibleVehiculo.getSelectionModel().getSelectedItem());
+
         }
+
+        vehiculoController.agregar(vehiculo);
 
 
     }
@@ -266,4 +277,6 @@ public class VehiculoViewController {
         cb_TipoCombustibleVehiculo.getItems().addAll(TipoCombustible.values());
         cb_TipoVehiculo.getItems().addAll(TipoVehiculo.values());
     }
+
+
 }

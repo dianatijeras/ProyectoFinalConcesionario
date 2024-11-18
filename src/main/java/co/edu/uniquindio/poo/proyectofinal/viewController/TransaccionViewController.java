@@ -3,7 +3,13 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.TipoCombustible;
 import co.edu.uniquindio.poo.proyectofinal.model.TipoTransaccion;
+import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +22,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class TransaccionViewController {
 
@@ -36,6 +43,9 @@ public class TransaccionViewController {
 
     @FXML
     private ComboBox<TipoTransaccion> cb_TipoTransaccion;
+
+    @FXML
+    private ComboBox<Vehiculo> cb_Vehiculo;
 
     @FXML
     private Label lbl_ClienteTransaccion;
@@ -59,6 +69,9 @@ public class TransaccionViewController {
     private Label lbl_tipoTransaccion;
 
     @FXML
+    private Label lbl_diasAlquiler;
+
+    @FXML
     private Pane pn_menuTransaccion;
 
     @FXML
@@ -78,6 +91,28 @@ public class TransaccionViewController {
 
     @FXML
     private TextField txf_VehiculoTransaccion;
+
+    @FXML
+    private TextField txf_diasAlquiler;
+
+    @FXML
+    private Label txf_monto;
+
+    private DoubleProperty monto;
+
+    private double baseDias = 0;
+
+    public double getMonto() {
+        return monto.get();
+    }
+
+    public DoubleProperty montoProperty() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto.set(monto);
+    }
 
     @FXML
     void OnMousePressed_ClienteTransaccion(ActionEvent event) {
@@ -188,7 +223,99 @@ public class TransaccionViewController {
 
     @FXML
     void initialize() {
+
+        monto = new SimpleDoubleProperty(0);
         cb_TipoTransaccion.getItems().addAll(TipoTransaccion.values());
+        cb_Vehiculo.setConverter(new StringConverter<Vehiculo>() {
+            @Override
+            public String toString(Vehiculo vehiculo) {
+                if (vehiculo == null) {
+                    return "Vehículo no disponible";
+                }
+                // Utilizar valores predeterminados si alguna propiedad es nula
+                String marca = vehiculo.getMarca() != null ? vehiculo.getMarca() : "Sin marca";
+                String placa = vehiculo.getPlaca() != null ? vehiculo.getPlaca() : "Sin placa";
+                TipoCombustible tipo = vehiculo.getTipoCombustible();
+                return marca + " - " + placa + " - " + tipo;
+            }
+
+            @Override
+            public Vehiculo fromString(String string) {
+                return null; // No es necesario implementar para este caso
+            }
+        });
+
+        // Añadir la lista de vehículos al ComboBox
+        cb_Vehiculo.getItems().addAll(HelloApplication.getVehiculos());
+
+        // Listener para actualizar el texto del Label cuando cambie el valor de 'monto'
+        monto.addListener((observable, oldValue, newValue) -> {
+            txf_monto.setText(String.format("Monto: %.2f", newValue.doubleValue()));
+        });
+
+        cb_TipoTransaccion.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) return;
+
+            switch (newValue) {
+                case ALQUILER -> {
+                    txf_diasAlquiler.setVisible(true);
+                    lbl_diasAlquiler.setVisible(true);
+                    System.out.println("Modo ALQUILER seleccionado. Configurando campos...");
+                }
+                case VENTA -> {
+                    txf_diasAlquiler.setVisible(false);
+                    lbl_diasAlquiler.setVisible(false);
+                    System.out.println("Modo VENTA seleccionado.");
+                }
+                case COMPRA -> {
+                    txf_diasAlquiler.setVisible(false);
+                    lbl_diasAlquiler.setVisible(false);
+                    System.out.println("Modo COMPRA seleccionado.");
+                }
+                default -> {
+                    txf_diasAlquiler.setVisible(false);
+                    lbl_diasAlquiler.setVisible(false);
+                    System.out.println("Otro tipo de transacción.");
+                }
+            }
+        });
+
+        // Listener para el TextField de días de alquiler
+        txf_diasAlquiler.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                // Calcular el monto base solo para los días
+                double diasAlquiler = Double.parseDouble(newValue);
+                baseDias = 7000.0 * diasAlquiler;
+
+                // Actualizar el monto total basado en otros factores (vehículo, etc.)
+                actualizarMonto();
+            } catch (NumberFormatException e) {
+                baseDias = 0.0; // Si el texto no es válido, restablecer base a 0
+                actualizarMonto();
+            }
+        });
+
+        // Listener para el ComboBox de vehículos
+        cb_Vehiculo.valueProperty().addListener((observable, oldValue, newValue) -> {
+            actualizarMonto(); // Recalcular monto total cuando cambia el vehículo
+        });
+
+        // Inicialización adicional, si es necesaria
+    }
+
+    private void actualizarMonto() {
+        // Obtener el vehículo seleccionado, si lo hay
+        Vehiculo vehiculo = cb_Vehiculo.getSelectionModel().getSelectedItem();
+        double extraCombustible = 0.0;
+
+        // Verificar si el vehículo tiene un cargo adicional por combustible
+        if (vehiculo != null && "DIESEL".equals(vehiculo.getTipoCombustible().name())) {
+            extraCombustible = 3000.0;
+        }
+
+        // Calcular el monto total basado en días y otros factores
+        double total = baseDias + extraCombustible;
+        monto.set(total); // Actualizar la propiedad de monto
     }
 
 }

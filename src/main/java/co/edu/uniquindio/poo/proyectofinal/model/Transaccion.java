@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Transaccion {
 
     private String idTransaccion;
@@ -8,6 +11,12 @@ public class Transaccion {
     private Vehiculo vehiculo;
     private TipoTransaccion tipoTransaccion;
     private Cliente cliente;
+
+    private static final Map<Class<? extends Vehiculo>, Double> MONTOS_BASE = new HashMap<>();
+
+    static {
+        MONTOS_BASE.put(BusCombustible.class, 7000.0);
+    }
 
     /**
      * Constructor de la clase Transaccion

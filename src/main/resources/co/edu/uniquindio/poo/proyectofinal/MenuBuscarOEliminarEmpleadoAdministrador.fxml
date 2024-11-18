@@ -14,12 +14,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_CedulaEmpleado" layoutX="38.0" layoutY="93.0" text="Cedula" textFill="WHITE">
+      <Label fx:id="lbl_IdEmpleado" layoutX="38.0" layoutY="93.0" text="IdEmpleado" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txf_CedulaEmpleado" layoutX="38.0" layoutY="114.0" />
+      <TextField fx:id="txf_IdEmpleado" layoutX="38.0" layoutY="114.0" />
       <Separator fx:id="sp_Titulo" layoutX="26.0" layoutY="65.0" prefHeight="0.0" prefWidth="200.0" />
       <Button fx:id="btn_EliminarEmpleado" layoutX="38.0" layoutY="163.0" mnemonicParsing="false" onAction="#onClick_EliminarEmpleado" prefHeight="25.0" prefWidth="67.0" text="Eliminar" />
       <Button fx:id="btn_BuscarEmpleado" layoutX="120.0" layoutY="163.0" mnemonicParsing="false" onAction="#onClick_BuscarEmpleado" prefHeight="25.0" prefWidth="67.0" text="Buscar" />

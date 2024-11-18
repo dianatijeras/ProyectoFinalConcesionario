@@ -45,27 +45,22 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_EstadoVehiculo" layoutX="285.0" layoutY="85.0" text="Estado" textFill="WHITE">
+      <Label fx:id="lbl_EstadoVehiculo" layoutX="286.0" layoutY="95.0" text="Estado" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_TipoTransmicionVehiculo" layoutX="284.0" layoutY="153.0" text="Tipo de Transmicion" textFill="WHITE">
+      <Label fx:id="lbl_TipoTransmicionVehiculo" layoutX="285.0" layoutY="165.0" text="Tipo de Transmicion" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_TipoCombistobleVehiculo" layoutX="282.0" layoutY="228.0" text="Tipo de Combustible" textFill="WHITE">
+      <Label fx:id="lbl_TipoCombistobleVehiculo" layoutX="285.0" layoutY="251.0" text="Tipo de Combustible" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_TipoVehiculo" layoutX="284.0" layoutY="301.0" text="Tipo de Vehiculo" textFill="WHITE">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbl_Vehiculos" layoutX="285.0" layoutY="379.0" text="Vehiculos" textFill="WHITE">
+      <Label fx:id="lbl_TipoVehiculo" layoutX="286.0" layoutY="333.0" text="Tipo de Vehiculo" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
@@ -77,12 +72,11 @@
       <TextField fx:id="txf_CambiosVehiculo" layoutX="26.0" layoutY="297.0" onAction="#OnMousePresse_CambiosVehiculo" prefHeight="25.0" prefWidth="149.0" />
       <TextField fx:id="txf_CilindrajeVehiculo" layoutX="26.0" layoutY="359.0" onAction="#OnMousePressed_CilindrajeVehiculo" prefHeight="25.0" prefWidth="149.0" />
       <TextField fx:id="txf_VelocidadMaximaVehiculo" layoutX="26.0" layoutY="418.0" onAction="#OnMousePressed_VelocidadMaximaVehiculo" prefHeight="25.0" prefWidth="149.0" />
-      <Separator fx:id="sp_SepracionMitadMenu" layoutX="235.0" layoutY="85.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="0.0" />
-      <ComboBox fx:id="cb_EstadoVehiculo" layoutX="285.0" layoutY="105.0" onAction="#onClick_EstadoVehiculo" prefWidth="150.0" />
-      <ComboBox fx:id="cb_TipoTransmicionVehiculo" layoutX="285.0" layoutY="179.0" onAction="#onClick_TipoTransmicionVehiculo" prefHeight="19.0" prefWidth="150.0" />
-      <ComboBox fx:id="cb_TipoCombustibleVehiculo" layoutX="285.0" layoutY="254.0" onAction="#onClick_TipoCombustibleVehiculo" prefWidth="150.0" />
-      <ComboBox fx:id="cb_TipoVehiculo" layoutX="285.0" layoutY="328.0" onAction="#onClick_TipoVehiculo" prefWidth="150.0" />
-      <ComboBox fx:id="cb_Vehiculos" layoutX="285.0" layoutY="404.0" onAction="#onClick_Vehiculos" prefWidth="150.0" />
+      <Separator fx:id="sp_SepracionMitadMenu" layoutX="233.0" layoutY="85.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="0.0" />
+      <ComboBox fx:id="cb_EstadoVehiculo" layoutX="286.0" layoutY="115.0" onAction="#onClick_EstadoVehiculo" prefWidth="150.0" />
+      <ComboBox fx:id="cb_TipoTransmicionVehiculo" layoutX="286.0" layoutY="191.0" onAction="#onClick_TipoTransmicionVehiculo" prefHeight="19.0" prefWidth="150.0" />
+      <ComboBox fx:id="cb_TipoCombustibleVehiculo" layoutX="288.0" layoutY="277.0" onAction="#onClick_TipoCombustibleVehiculo" prefWidth="150.0" />
+      <ComboBox fx:id="cb_TipoVehiculo" layoutX="287.0" layoutY="360.0" onAction="#onClick_TipoVehiculo" prefWidth="150.0" />
       <Button fx:id="btn_AgregarVehiculo" layoutX="135.0" layoutY="488.0" mnemonicParsing="false" onAction="#onClick_AgregarVehiculo" text="Agregar" />
       <Button fx:id="btn_EliminarOBuscarVehiculo" layoutX="206.0" layoutY="488.0" mnemonicParsing="false" onAction="#onClick_EliminarOBuscarVehiculo" prefHeight="25.0" prefWidth="129.0" text="Eliminar o Buscar" />
       <Button fx:id="btn_Volver" layoutX="135.0" layoutY="553.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: grey;" text="Volver" textFill="WHITE" />

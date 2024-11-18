@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane fx:id="pn_menuTransaccion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="345.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.TransaccionViewController">
    <children>
       <Label fx:id="lbl_Transaccion" layoutX="34.0" layoutY="28.0" text="Transaccion" textFill="WHITE">
@@ -48,7 +47,6 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txf_VehiculoTransaccion" layoutX="30.0" layoutY="237.0" onAction="#OnMousePressed_VehiculoTransaccion" />
       <TextField fx:id="txf_ClienteTransaccion" layoutX="26.0" layoutY="306.0" onAction="#OnMousePressed_ClienteTransaccion" />
       <ComboBox fx:id="cb_TipoTransaccion" layoutX="27.0" layoutY="368.0" onAction="#onClick_TipoTransaccion" prefWidth="150.0" />
       <Separator fx:id="sp_separacionTitulo" layoutX="22.0" layoutY="62.0" prefHeight="0.0" prefWidth="298.0" />
@@ -56,5 +54,17 @@
       <Button fx:id="btn_BuscarTransaccion" layoutX="171.0" layoutY="472.0" mnemonicParsing="false" onAction="#onClick_BuscarTransaccion" prefHeight="25.0" prefWidth="123.0" text="Buscar Transaccion" />
       <Button fx:id="btn_Volver" layoutX="31.0" layoutY="553.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: grey;" text="Volver" textFill="WHITE" />
       <Separator fx:id="sp_botones" layoutX="22.0" layoutY="522.0" prefHeight="0.0" prefWidth="298.0" />
+      <Label fx:id="lbl_diasAlquiler" layoutX="206.0" layoutY="347.0" text="Dias" textFill="WHITE" visible="false">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txf_diasAlquiler" layoutX="206.0" layoutY="368.0" onAction="#OnMousePressed_ClienteTransaccion" prefHeight="25.0" prefWidth="114.0" visible="false" />
+      <ComboBox fx:id="cb_Vehiculo" layoutX="30.0" layoutY="241.0" onAction="#onClick_TipoTransaccion" prefWidth="150.0" />
+      <Label fx:id="txf_monto" layoutX="29.0" layoutY="436.0" prefHeight="19.0" prefWidth="123.0" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

@@ -47,6 +47,9 @@ public class BusCombustible extends VehiculoCombustible implements ICalcularCost
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+    public BusCombustible() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un bus
      * @return
