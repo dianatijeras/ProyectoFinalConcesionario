@@ -48,6 +48,9 @@ public class BusHibrido extends VehiculoHibrido implements ICalcularCostoTotal{
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+    public BusHibrido() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un bus
      * @return

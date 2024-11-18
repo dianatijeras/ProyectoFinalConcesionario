@@ -273,7 +273,14 @@ public class VehiculoViewController {
                 if (tipo.name().equals("Van")){
                     vehiculo = new VanCombustible();
                 }
-
+                break;
+            case "HIBRIDO":
+                if (tipo.name().equals("Bus")){
+                    vehiculo = new BusHibrido();
+                }
+                if (tipo.name().equals("Moto")){
+                    vehiculo = new MotoHibrida();
+                }
         }
 
         if (vehiculo != null){
