@@ -53,6 +53,9 @@ public class SedanCombustible extends VehiculoCombustible implements ICalcularCo
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    public SedanCombustible() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un sedan
      * @return

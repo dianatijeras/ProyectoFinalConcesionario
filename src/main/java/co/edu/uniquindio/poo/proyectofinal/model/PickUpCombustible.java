@@ -44,6 +44,9 @@ public class PickUpCombustible extends VehiculoCombustible implements ICalcularC
         this.es4x4 = es4x4;
     }
 
+    public PickUpCombustible() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un pickUp
      * @return

@@ -41,6 +41,9 @@ public class VanCombustible extends VehiculoCombustible implements ICalcularCost
         this.abs = abs;
     }
 
+    public VanCombustible() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de una van
      * @return
