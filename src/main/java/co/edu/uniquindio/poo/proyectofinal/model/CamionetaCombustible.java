@@ -16,31 +16,9 @@ public class CamionetaCombustible extends VehiculoCombustible implements ICalcul
     private boolean es4x4;
 
     /**
-     * Constructor de la clase hija camionetaCombustible que hereda de la clase padre vehiculoCombustible
-     * @param marca
-     * @param placa
-     * @param modelo
-     * @param cambios
-     * @param cilindraje
-     * @param velocidadMax
-     * @param estado
-     * @param tipoTransmicion
-     * @param tipoCombustible
-     * @param capacidadTanque
-     * @param numPasajero
-     * @param numPuertas
-     * @param capacidadMaletero
-     * @param aireAcondicionado
-     * @param camaraReversa
-     * @param velocidadCrucero
-     * @param numBolsasAire
-     * @param abs
-     * @param sensoresColision
-     * @param sensorTraficoCruzado
-     * @param asistentePermanenciaCarril
-     * @param es4x4
+     * Constructor
      */
-    public CamionetaCombustible(String marca, String placa, String modelo, int cambios, int cilindraje, int velocidadMax, Estado estado, TipoTransmicion tipoTransmicion, TipoCombustible tipoCombustible, int capacidadTanque, int numPasajero, int numPuertas, int capacidadMaletero, boolean aireAcondicionado, boolean camaraReversa, boolean velocidadCrucero, int numBolsasAire, boolean abs, boolean sensoresColision, boolean sensorTraficoCruzado, boolean asistentePermanenciaCarril, boolean es4x4) {
+    public CamionetaCombustible(String marca, String placa, String modelo, int cambios, int cilindraje, int velocidadMax, Estado estado, TipoTransmicion tipoTransmicion, TipoCombustible tipoCombustible, int capacidadTanque, int capacidadCarga, boolean aireAcondicionado, boolean frenosDeAire, boolean abs, int numEjes, TipoCamion tipoCamion) {
         super(marca, placa, modelo, cambios, cilindraje, velocidadMax, estado, tipoTransmicion, tipoCombustible, capacidadTanque);
         this.numPasajero = numPasajero;
         this.numPuertas = numPuertas;
@@ -54,6 +32,9 @@ public class CamionetaCombustible extends VehiculoCombustible implements ICalcul
         this.sensorTraficoCruzado = sensorTraficoCruzado;
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
         this.es4x4 = es4x4;
+    }
+
+    public CamionetaCombustible() {
     }
 
     /**

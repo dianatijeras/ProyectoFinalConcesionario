@@ -261,6 +261,10 @@ public class VehiculoViewController {
                 if (tipo.name().equals("Camioneta")){
                     vehiculo = new CamionetaCombustible();
                 }
+                if (tipo.name().equals("Camion")){
+                    vehiculo = new CamionCombustible();
+                }
+
         }
 
         if (vehiculo != null){
