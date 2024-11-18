@@ -43,10 +43,27 @@ public class VerVehiculosViewController {
     private TableView<Vehiculo> tb_VerVehiculo;
 
     @FXML
+    private TableColumn<?, ?> tbc_CambiosVehiculo;
+
+    @FXML
+    private TableColumn<?, ?> tbc_EstadoVehiculo;
+
+    @FXML
     private TableColumn<Vehiculo, String> tbc_MarcaVehiculo;
 
     @FXML
+    private TableColumn<?, ?> tbc_ModeloVehiculo;
+
+    @FXML
     private TableColumn<Vehiculo, String> tbc_PlacaVehiculo;
+
+    @FXML
+    private TableColumn<?, ?> tbc_TipoCombustibleVehiculo;
+
+    @FXML
+    private TableColumn<?, ?> tbc_TipoTransmicionVehiculo;
+
+
 
     @FXML
     void onClick_Volver(ActionEvent event) {
@@ -77,13 +94,19 @@ public class VerVehiculosViewController {
         tbc_MarcaVehiculo.setCellValueFactory(cellData -> cellData.getValue().marcaProperty());
         tbc_PlacaVehiculo.setCellValueFactory(cellData -> cellData.getValue().placaProperty());
         tb_VerVehiculo.getItems().setAll(HelloApplication.getVehiculos());
+
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert lbl_VerVehiculos != null : "fx:id=\"lbl_VerVehiculos\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert pn_MenuVerVehiculos != null : "fx:id=\"pn_MenuVerVehiculos\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert sp_titulo != null : "fx:id=\"sp_titulo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert tb_VerVehiculo != null : "fx:id=\"tb_VerVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
+        assert tbc_CambiosVehiculo != null : "fx:id=\"tbc_CambiosVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
+        assert tbc_EstadoVehiculo != null : "fx:id=\"tbc_EstadoVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert tbc_MarcaVehiculo != null : "fx:id=\"tbc_MarcaVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
+        assert tbc_ModeloVehiculo != null : "fx:id=\"tbc_ModeloVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert tbc_PlacaVehiculo != null : "fx:id=\"tbc_PlacaVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
+        assert tbc_TipoCombustibleVehiculo != null : "fx:id=\"tbc_TipoCombustibleVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
+        assert tbc_TipoTransmicionVehiculo != null : "fx:id=\"tbc_TipoTransmicionVehiculo\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
 
     }
 

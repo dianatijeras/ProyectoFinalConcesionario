@@ -12,6 +12,7 @@ public class Transaccion {
     private TipoTransaccion tipoTransaccion;
     private Cliente cliente;
 
+
     private static final Map<Class<? extends Vehiculo>, Double> MONTOS_BASE = new HashMap<>();
 
     static {

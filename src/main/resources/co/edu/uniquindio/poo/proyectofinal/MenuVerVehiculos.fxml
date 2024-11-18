@@ -8,20 +8,25 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pn_MenuVerVehiculos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.VerVehiculosViewController">
+<Pane fx:id="pn_MenuVerVehiculos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="774.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.VerVehiculosViewController">
    <children>
-      <Label fx:id="lbl_VerVehiculos" layoutX="194.0" layoutY="39.0" text="Ver Vehiculos">
+      <Label fx:id="lbl_VerVehiculos" layoutX="333.0" layoutY="47.0" text="Ver Vehiculos">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tb_VerVehiculo" layoutX="131.0" layoutY="116.0" prefHeight="200.0" prefWidth="233.0" style="-fx-background-color: grey;">
+      <TableView fx:id="tb_VerVehiculo" layoutX="42.0" layoutY="113.0" prefHeight="200.0" prefWidth="690.0" style="-fx-background-color: grey;">
          <columns>
-            <TableColumn fx:id="tbc_PlacaVehiculo" prefWidth="120.0" text="Placa" />
-            <TableColumn fx:id="tbc_MarcaVehiculo" prefWidth="112.0" text="Marca" />
+            <TableColumn fx:id="tbc_MarcaVehiculo" prefWidth="87.0" text="Marca" />
+            <TableColumn fx:id="tbc_PlacaVehiculo" prefWidth="82.0" text="Placa" />
+            <TableColumn fx:id="tbc_ModeloVehiculo" prefWidth="97.0" text="Modelo" />
+            <TableColumn fx:id="tbc_CambiosVehiculo" prefWidth="93.0" text="Cambios" />
+            <TableColumn fx:id="tbc_EstadoVehiculo" prefWidth="100.0" text="Estado " />
+            <TableColumn fx:id="tbc_TipoTransmicionVehiculo" prefWidth="121.0" text="Tipo Transmicion " />
+            <TableColumn fx:id="tbc_TipoCombustibleVehiculo" prefWidth="107.0" text="Tipo Combustibe " />
          </columns>
       </TableView>
-      <Separator fx:id="sp_titulo" layoutX="27.0" layoutY="85.0" prefHeight="2.0" prefWidth="453.0" />
-      <Button fx:id="btn_Volver" layoutX="194.0" layoutY="344.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: green;" text="Volver" textFill="#f8f8f8" />
+      <Separator fx:id="sp_titulo" layoutX="27.0" layoutY="85.0" prefHeight="0.0" prefWidth="721.0" />
+      <Button fx:id="btn_Volver" layoutX="327.0" layoutY="340.0" mnemonicParsing="false" onAction="#onClick_Volver" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: green;" text="Volver" textFill="#f8f8f8" />
    </children>
 </Pane>
