@@ -33,7 +33,7 @@
       </Label>
       <ImageView fitHeight="43.0" fitWidth="51.0" layoutX="17.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/UQ_logo%20(1).png" />
+            <Image url="@../../../../../images/UQ_logo%20(1).png" />
          </image>
       </ImageView>
    </children>

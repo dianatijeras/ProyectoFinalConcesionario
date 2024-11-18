@@ -16,7 +16,23 @@ public class CamionetaCombustible extends VehiculoCombustible implements ICalcul
     private boolean es4x4;
 
     /**
-     * Constructor
+     * Constructor de la clase hija camionetaCombustible que hereda de la clase padre vehiculoCombustible
+     * @param marca
+     * @param placa
+     * @param modelo
+     * @param cambios
+     * @param cilindraje
+     * @param velocidadMax
+     * @param estado
+     * @param tipoTransmicion
+     * @param tipoCombustible
+     * @param capacidadTanque
+     * @param capacidadCarga
+     * @param aireAcondicionado
+     * @param frenosDeAire
+     * @param abs
+     * @param numEjes
+     * @param tipoCamion
      */
     public CamionetaCombustible(String marca, String placa, String modelo, int cambios, int cilindraje, int velocidadMax, Estado estado, TipoTransmicion tipoTransmicion, TipoCombustible tipoCombustible, int capacidadTanque, int capacidadCarga, boolean aireAcondicionado, boolean frenosDeAire, boolean abs, int numEjes, TipoCamion tipoCamion) {
         super(marca, placa, modelo, cambios, cilindraje, velocidadMax, estado, tipoTransmicion, tipoCombustible, capacidadTanque);

@@ -26,8 +26,8 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/menuInicio.fxml")); //En lugar de Hello Applicarion se usa getClass()
-        Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicio.fxml")); //En lugar de Hello Applicarion se usa getClass()
+        Scene scene = new Scene(fxmlLoader.load(), 297, 270);
         stage.setTitle("Tu Carro Uq");
         cargarDatos();
         stage.setScene(scene);
