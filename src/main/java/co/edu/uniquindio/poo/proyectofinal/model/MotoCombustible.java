@@ -23,6 +23,9 @@ public class MotoCombustible extends VehiculoCombustible implements ICalcularCos
         this.anioFabricacion = anioFabricacion;
     }
 
+    public MotoCombustible() {
+    }
+
     /**
      * Metodo que obtiene el año de fabricacion de una moto
      * @return
