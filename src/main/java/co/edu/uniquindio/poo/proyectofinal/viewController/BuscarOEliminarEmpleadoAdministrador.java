@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
 import co.edu.uniquindio.poo.proyectofinal.model.Persona;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 
 public class BuscarOEliminarEmpleadoAdministrador {
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -59,7 +61,7 @@ public class BuscarOEliminarEmpleadoAdministrador {
        boolean existe = false;
         System.out.println(id);
 
-       for(Persona persona: HelloApplication.getEmpleados()){
+       for(Persona persona: concesionario.getListaEmpleados()){
            if(persona instanceof Empleado){
                if(((Empleado) persona).getIdEmpleado().equals(id)){
                    existe = true;
@@ -77,11 +79,11 @@ public class BuscarOEliminarEmpleadoAdministrador {
     void onClick_EliminarEmpleado(ActionEvent event) {
         String id = txf_IdEmpleado.getText();
 
-        for(Persona persona: HelloApplication.getEmpleados()){
+        for(Persona persona: concesionario.getListaEmpleados()){
             if(persona instanceof Empleado){
                 if(((Empleado) persona).getIdEmpleado().equals(id)){
                     JOptionPane.showMessageDialog(null, "Se ha eliminado el Empleado");
-                    HelloApplication.getEmpleados().remove(persona);
+                    concesionario.getListaEmpleados().remove(persona);
                 }
             }
         }

@@ -36,6 +36,9 @@ public class DeportivoElectrico extends VehiculoElectrico implements ICalcularCo
         this.tiempo0a100 = tiempo0a100;
     }
 
+    public DeportivoElectrico() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un deportivo
      * @return

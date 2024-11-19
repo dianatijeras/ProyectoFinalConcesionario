@@ -48,6 +48,9 @@ public class BusElectrico extends VehiculoElectrico implements ICalcularCostoTot
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+    public BusElectrico() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un bus
      * @return

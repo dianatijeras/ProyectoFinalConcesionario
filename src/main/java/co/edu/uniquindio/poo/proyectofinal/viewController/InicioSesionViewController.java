@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
 import co.edu.uniquindio.poo.proyectofinal.model.Administrador;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
 import co.edu.uniquindio.poo.proyectofinal.model.Persona;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class InicioSesionViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -76,17 +78,15 @@ public class InicioSesionViewController {
         String usuario = txf_ingresoUsuario.getText();
         String contrasenia = txf_ingresoContrasenia.getText();
 
-        for (Persona persona : HelloApplication.getEmpleados()){
+            if (( concesionario.getAdministrador()).getUsername().equals(usuario) && (concesionario.getAdministrador()).getContrasenia().equals(contrasenia)){
+                cambiarVentana1(event);
+            }
+
+
+        for (Persona persona : concesionario.getListaEmpleados()){
             if (persona.getClass().equals(Empleado.class)){
                 if (((Empleado) persona).getUsername().equals(usuario) && ((Empleado) persona).getContrasenia().equals(contrasenia)){
                     cambiarVentana(event);
-                    break;
-                }
-            }
-
-            if (persona.getClass().equals(Administrador.class)){
-                if (((Administrador) persona).getUsername().equals(usuario) && ((Administrador) persona).getContrasenia().equals(contrasenia)){
-                    cambiarVentana1(event);
                     break;
                 }
             } else {
@@ -98,7 +98,6 @@ public class InicioSesionViewController {
     @FXML
     private void cambiarVentana1(ActionEvent event) {
         try {
-            // Carga la nueva vista
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuAdministrador.fxml"));
             Parent root = loader.load();
 
@@ -122,7 +121,6 @@ public class InicioSesionViewController {
     @FXML
     private void cambiarVentana(ActionEvent event) {
         try {
-            // Carga la nueva vista
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleado.fxml"));
             Parent root = loader.load();
 
@@ -144,21 +142,17 @@ public class InicioSesionViewController {
 
     public void volverAInicio() {
         try {
-            // Cargar el archivo FXML de InicioViewController
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuInicio.fxml"));
             Parent root = loader.load();
 
-            // Obtener el Stage actual
             Stage currentStage = (Stage) (btn_VolverMenuInicio).getScene().getWindow();
 
-            // Configurar la nueva escena
             Scene scene = new Scene(root);
             currentStage.setScene(scene);
             currentStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar el error en caso de que el archivo FXML no se cargue
         }
     }
 

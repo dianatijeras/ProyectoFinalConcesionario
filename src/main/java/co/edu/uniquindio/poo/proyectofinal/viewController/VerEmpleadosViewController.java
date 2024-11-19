@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
 import co.edu.uniquindio.poo.proyectofinal.model.Persona;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class VerEmpleadosViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
 
     @FXML
@@ -87,7 +89,7 @@ public class VerEmpleadosViewController {
         tbc_NombreEmpleado.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
         tcb_CorreoEmpleado.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
         tcb_TelefonoEmpleado.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
-        tb_VerEmpleado.getItems().setAll(HelloApplication.getEmpleados().stream()
+        tb_VerEmpleado.getItems().setAll(concesionario.getListaEmpleados().stream()
                 .filter(e -> e instanceof Empleado)
                 .map(e -> (Empleado) e)
                 .toList());

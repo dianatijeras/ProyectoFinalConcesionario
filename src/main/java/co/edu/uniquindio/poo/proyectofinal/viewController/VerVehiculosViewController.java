@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class VerVehiculosViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -93,7 +95,7 @@ public class VerVehiculosViewController {
     void initialize() {
         tbc_MarcaVehiculo.setCellValueFactory(cellData -> cellData.getValue().marcaProperty());
         tbc_PlacaVehiculo.setCellValueFactory(cellData -> cellData.getValue().placaProperty());
-        tb_VerVehiculo.getItems().setAll(HelloApplication.getVehiculos());
+        tb_VerVehiculo.getItems().setAll(concesionario.getListaVehiculos());
 
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
         assert lbl_VerVehiculos != null : "fx:id=\"lbl_VerVehiculos\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";

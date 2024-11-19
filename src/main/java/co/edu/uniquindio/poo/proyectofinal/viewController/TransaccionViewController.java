@@ -2,12 +2,11 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
-import co.edu.uniquindio.poo.proyectofinal.model.TipoCombustible;
-import co.edu.uniquindio.poo.proyectofinal.model.TipoTransaccion;
-import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
+import co.edu.uniquindio.poo.proyectofinal.model.*;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
@@ -25,6 +24,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class TransaccionViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -46,6 +46,9 @@ public class TransaccionViewController {
 
     @FXML
     private ComboBox<Vehiculo> cb_Vehiculo;
+
+    @FXML
+    private ComboBox<Cliente> cb_Cliente;
 
     @FXML
     private Label lbl_ClienteTransaccion;
@@ -120,6 +123,11 @@ public class TransaccionViewController {
     }
 
     @FXML
+    void onClick_Cliente(ActionEvent event) {
+
+    }
+
+    @FXML
     void OnMousePressed_FechaTransaccion(ActionEvent event) {
 
     }
@@ -130,7 +138,7 @@ public class TransaccionViewController {
     }
 
     @FXML
-    void OnMousePressed_VehiculoTransaccion(ActionEvent event) {
+    void onClick_Vehiculo(ActionEvent event) {
 
     }
 
@@ -142,6 +150,7 @@ public class TransaccionViewController {
 
     @FXML
     void onClick_RealizarTransaccion(ActionEvent event) {
+
         TipoTransaccion tipo = cb_TipoTransaccion.getValue();
         if(tipo != null){
             switch (tipo){
@@ -161,16 +170,31 @@ public class TransaccionViewController {
     }
 
     private void realizarVenta(){
-        System.out.println("Realizando venta..");
+        Transaccion transaccion = new Transaccion();
+        transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
+        transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setCliente(cb_Cliente.getValue());
+        transaccion.setMonto(monto.get());
+        transaccion.setFecha(LocalDate.now().toString());
 
     }
 
     private void realizarCompra(){
-        System.out.println("Realizando compra..");
+        Transaccion transaccion = new Transaccion();
+        transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
+        transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setCliente(cb_Cliente.getValue());
+        transaccion.setMonto(monto.get());
+        transaccion.setFecha(LocalDate.now().toString());
     }
 
     private void realizarAlquiler(){
-        System.out.println("Realizando alquiler..");
+        Transaccion transaccion = new Transaccion();
+        transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
+        transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setCliente(cb_Cliente.getValue());
+        transaccion.setMonto(monto.get());
+        transaccion.setFecha(LocalDate.now().toString());
     }
 
 
@@ -230,9 +254,8 @@ public class TransaccionViewController {
             @Override
             public String toString(Vehiculo vehiculo) {
                 if (vehiculo == null) {
-                    return "Vehículo no disponible";
+                    return "Seleccione";
                 }
-                // Utilizar valores predeterminados si alguna propiedad es nula
                 String marca = vehiculo.getMarca() != null ? vehiculo.getMarca() : "Sin marca";
                 String placa = vehiculo.getPlaca() != null ? vehiculo.getPlaca() : "Sin placa";
                 TipoCombustible tipo = vehiculo.getTipoCombustible();
@@ -245,10 +268,30 @@ public class TransaccionViewController {
             }
         });
 
-        // Añadir la lista de vehículos al ComboBox
-        cb_Vehiculo.getItems().addAll(HelloApplication.getVehiculos());
+        cb_Cliente.setConverter(new StringConverter<Cliente>() {
+            @Override
+            public String toString(Cliente cliente) {
+                if (cliente == null) {
+                    return "Seleccione";
+                }
+                String nombre = cliente.getNombre() != null ? cliente.getNombre() : "Sin nombre";
+                String cedula = cliente.getCedula() != null ? cliente.getCedula() : "Sin cedula";
+                String telefono = cliente.getTelefono() != null ? cliente.getTelefono() : "sin telefono";
+                String direccion = cliente.getDireccion() != null ? cliente.getDireccion() : "Sin direccion";
+                String email = cliente.getEmail() != null ? cliente.getEmail() : "sin email";
 
-        // Listener para actualizar el texto del Label cuando cambie el valor de 'monto'
+                return nombre + " - " + cedula + " - " + telefono + " - " + direccion + " - " + email;
+            }
+
+            @Override
+            public Cliente fromString(String string) {
+                return null; // No es necesario implementar para este caso
+            }
+        });
+
+        cb_Cliente.getItems().addAll(concesionario.getListaClientes());
+        cb_Vehiculo.getItems().addAll(concesionario.getListaVehiculos());
+
         monto.addListener((observable, oldValue, newValue) -> {
             txf_monto.setText(String.format("Monto: %.2f", newValue.doubleValue()));
         });
@@ -280,42 +323,48 @@ public class TransaccionViewController {
             }
         });
 
-        // Listener para el TextField de días de alquiler
         txf_diasAlquiler.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
-                // Calcular el monto base solo para los días
                 double diasAlquiler = Double.parseDouble(newValue);
                 baseDias = 7000.0 * diasAlquiler;
 
-                // Actualizar el monto total basado en otros factores (vehículo, etc.)
                 actualizarMonto();
             } catch (NumberFormatException e) {
-                baseDias = 0.0; // Si el texto no es válido, restablecer base a 0
+                baseDias = 0.0;
                 actualizarMonto();
             }
         });
 
-        // Listener para el ComboBox de vehículos
         cb_Vehiculo.valueProperty().addListener((observable, oldValue, newValue) -> {
             actualizarMonto(); // Recalcular monto total cuando cambia el vehículo
         });
 
-        // Inicialización adicional, si es necesaria
     }
 
     private void actualizarMonto() {
-        // Obtener el vehículo seleccionado, si lo hay
+
         Vehiculo vehiculo = cb_Vehiculo.getSelectionModel().getSelectedItem();
         double extraCombustible = 0.0;
 
-        // Verificar si el vehículo tiene un cargo adicional por combustible
+
         if (vehiculo != null && "DIESEL".equals(vehiculo.getTipoCombustible().name())) {
             extraCombustible = 3000.0;
         }
+        if (vehiculo != null && "GASOLINA".equals(vehiculo.getTipoCombustible().name())) {
+            extraCombustible = 4000.0;
+        }
+        if (vehiculo != null && "HIBRIDO".equals(vehiculo.getTipoCombustible().name())) {
+            extraCombustible = 5000.0;
+        }
+        if (vehiculo != null && "ELECTRICO".equals(vehiculo.getTipoCombustible().name())) {
+            extraCombustible = 6000.0;
+        }
 
-        // Calcular el monto total basado en días y otros factores
+
         double total = baseDias + extraCombustible;
-        monto.set(total); // Actualizar la propiedad de monto
+        monto.set(total);
+
+
     }
 
 }

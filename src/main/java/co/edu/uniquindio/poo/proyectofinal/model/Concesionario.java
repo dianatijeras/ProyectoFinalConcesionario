@@ -25,21 +25,11 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
      * @param nombre
      * @param direccion
      * @param telefono
-     * @param vehiculo
-     * @param cliente
-     * @param empleado
-     * @param administrador
-     * @param transaccion
      */
-    public Concesionario(String nombre, String direccion, String telefono, Vehiculo vehiculo, Cliente cliente, Empleado empleado, Administrador administrador, Transaccion transaccion) {
+    public Concesionario(String nombre, String direccion, String telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.vehiculo = vehiculo;
-        this.cliente = cliente;
-        this.empleado = empleado;
-        this.administrador = administrador;
-        this.transaccion = transaccion;
         this.listaVehiculos = new LinkedList<>();
         this.listaClientes = new LinkedList<>();
         this.listaEmpleados = new LinkedList<>();

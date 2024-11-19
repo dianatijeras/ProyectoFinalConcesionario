@@ -2,14 +2,9 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
-import co.edu.uniquindio.poo.proyectofinal.controller.ClienteController;
-import co.edu.uniquindio.poo.proyectofinal.controller.VehiculoController;
 import co.edu.uniquindio.poo.proyectofinal.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class VehiculoViewController {
-    private VehiculoController vehiculoController = new VehiculoController();
+    Concesionario concesionario = HelloApplication.concesionario;
 
 
     @FXML
@@ -156,7 +151,7 @@ public class VehiculoViewController {
     @FXML
     void onClick_AgregarVehiculo(ActionEvent event) {
         agregar();
-        System.out.println(HelloApplication.getVehiculos().size());
+        System.out.println(concesionario.getListaVehiculos().size());
     }
 
     @FXML
@@ -299,17 +294,30 @@ public class VehiculoViewController {
                 if (tipo.name().equals("Van")){
                     vehiculo = new VanHibrida();
                 }
-        }
+                break;
+            case "ELECTRICO":
+                if (tipo.name().equals("Bus")){
+                    vehiculo = new BusElectrico();
+                }
+                if (tipo.name().equals("Moto")){
+                    vehiculo = new MotoElectrica();
+                }
+                if (tipo.name().equals("Deportivo")){
+                    vehiculo = new DeportivoElectrico();
+                }
+                }
+                if (tipo.name().equals("Sedan")){
+                    vehiculo = new SedanElectrico();
+                }
+
+
 
         if (vehiculo != null){
             vehiculo.setMarca(txf_MarcaVehiculo.getText());
             vehiculo.setPlaca(txf_PlacaVehiculo.getText());
             vehiculo.setTipoCombustible(cb_TipoCombustibleVehiculo.getSelectionModel().getSelectedItem());
-
+                concesionario.getListaVehiculos().add(vehiculo);
         }
-
-        vehiculoController.agregar(vehiculo);
-
 
     }
 

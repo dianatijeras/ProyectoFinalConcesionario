@@ -24,6 +24,9 @@ public class MotoElectrica extends VehiculoElectrico implements ICalcularCostoTo
         this.anioFabricacion = anioFabricacion;
     }
 
+    public MotoElectrica() {
+    }
+
     /**
      * Metodo que obtiene el año de fabricacion de una moto
      * @return

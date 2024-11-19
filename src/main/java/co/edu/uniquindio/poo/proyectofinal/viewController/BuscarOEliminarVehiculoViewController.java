@@ -3,8 +3,11 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
-import co.edu.uniquindio.poo.proyectofinal.controller.BuscarOEliminarVehiculoController;
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +25,8 @@ import javax.swing.*;
 
 
 public class BuscarOEliminarVehiculoViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
-    private BuscarOEliminarVehiculoController buscarOEliminarVehiculoController = new BuscarOEliminarVehiculoController();
 
     @FXML
     private ResourceBundle resources;
@@ -58,14 +61,14 @@ public class BuscarOEliminarVehiculoViewController {
     @FXML
     void onClick_BuscarVehiculo(ActionEvent event) {
         String placaVehiculo = txf_PlacaVehiculo.getText();
-        Vehiculo vehiculo = buscarOEliminarVehiculoController.buscarVehiculo(placaVehiculo);
+        Vehiculo vehiculo = buscarVehiculo(placaVehiculo);
         JOptionPane.showMessageDialog(null, "Vehiculo: " + vehiculo);
     }
 
     @FXML
     void onClick_EliminarVehiculo(ActionEvent event) {
         String placa = txf_PlacaVehiculo.getText();
-        buscarOEliminarVehiculoController.eliminarVehiculo(placa);
+        eliminarVehiculo(placa);
     }
 
     @FXML
@@ -92,6 +95,36 @@ public class BuscarOEliminarVehiculoViewController {
 
         }
     }
+
+
+    public Vehiculo buscarVehiculo(String placa) {
+        AtomicBoolean existe = new AtomicBoolean(false);
+        AtomicReference<Vehiculo> vehiculo = new AtomicReference<>();
+
+        concesionario.getListaVehiculos().forEach(e -> {
+            if (e.getPlaca().equals(placa)) {
+                vehiculo.set(e);
+                existe.set(true);
+            }
+        });
+
+        if(!existe.get()){
+            JOptionPane.showMessageDialog(null, "No se ha encontrado el Vehiculo");
+        }
+
+        return vehiculo.get();
+    }
+
+
+    public void eliminarVehiculo(String placa) {
+        concesionario.getListaVehiculos().forEach(e -> {
+            if (e.getPlaca().equals(placa)) {
+                concesionario.getListaVehiculos().remove(e);
+                JOptionPane.showMessageDialog(null, "Vehiculo eliminado exitosamente");
+            }
+        });
+    }
+
 
 
 

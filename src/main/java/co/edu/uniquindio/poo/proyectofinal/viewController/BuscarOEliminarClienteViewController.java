@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
 import co.edu.uniquindio.poo.proyectofinal.model.Cliente;
 import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class BuscarOEliminarClienteViewController {
+    private Concesionario concesionario = HelloApplication.concesionario;
+
 
     @FXML
     private ResourceBundle resources;
@@ -47,7 +50,6 @@ public class BuscarOEliminarClienteViewController {
     @FXML
     private TextField txf_CedulaCliente;
 
-    private Concesionario concesionario;
 
     @FXML
     void onClick_BuscarCliente(ActionEvent event) {

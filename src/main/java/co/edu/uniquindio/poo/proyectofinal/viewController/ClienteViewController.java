@@ -1,11 +1,12 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
-import co.edu.uniquindio.poo.proyectofinal.controller.ClienteController;
-import co.edu.uniquindio.poo.proyectofinal.model.Cliente;
-import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Cliente;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ClienteViewController {
+
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -79,7 +82,6 @@ public class ClienteViewController {
 
     @FXML
     private TextField txf_TelefonoCliente;
-    private ClienteController clienteController;
 
     @FXML
     void OnMousePressed_CedulaCliente(ActionEvent event) {
@@ -167,11 +169,21 @@ public class ClienteViewController {
         String direccion = txf_DireccionCliente.getText();
         String email = txf_EmailCliente.getText();
 
-        boolean registrado = clienteController.registrarCliente(nombre, cedula, telefono, direccion, email);
+        boolean registrado = registrarCliente(nombre, cedula, telefono, direccion, email);
         mostrarMensaje("Registro Cliente", registrado ? "Cliente registrado con éxito" : "Cliente ya existe", registrado);
     }
 
     private void mostrarMensaje(String registroCliente, String s, boolean registrado) {
+    }
+
+
+    public boolean registrarCliente(String nombre, String cedula, String telefono, String direccion, String email) {
+        Cliente nuevoCliente = new Cliente(nombre, cedula, telefono, direccion, email, null);
+        if (concesionario.getListaClientes().stream().anyMatch(c -> c.getCedula().equals(cedula))) {
+            return false; // Cliente ya existe
+        }
+        concesionario.registrarCliente(nuevoCliente);
+        return true;
     }
 
 

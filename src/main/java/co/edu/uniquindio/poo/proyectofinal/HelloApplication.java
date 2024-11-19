@@ -1,9 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinal;
 
-import co.edu.uniquindio.poo.proyectofinal.model.Administrador;
-import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
-import co.edu.uniquindio.poo.proyectofinal.model.Persona;
-import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
+import co.edu.uniquindio.poo.proyectofinal.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,13 +13,7 @@ import java.util.List;
 
 public class HelloApplication extends Application {
 
-    public static List<Vehiculo> vehiculos;
-    public static List<Persona> empleados;
-
-    static {
-        vehiculos = new ArrayList<>();
-        empleados = new ArrayList<>();
-    }
+    public static Concesionario concesionario;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -39,6 +30,7 @@ public class HelloApplication extends Application {
     }
 
     public void cargarDatos(){
+        concesionario = new Concesionario("Tu carro Uq", "Universidad del quindio", "3020202");
         Empleado empleado = new Empleado();
         empleado.setUsername("emp");
         empleado.setContrasenia("123");
@@ -47,29 +39,15 @@ public class HelloApplication extends Application {
         empleado.setTelefono("312456789");
         empleado.setDireccion("juan@gmail.com");
 
-        empleados.add(empleado);
+        concesionario.getListaEmpleados().add(empleado);
 
         Administrador administrador = new Administrador();
 
         administrador.setUsername("admin");
         administrador.setContrasenia("123");
 
-        empleados.add(administrador);
+        concesionario.setAdministrador(administrador);
     }
 
-    public static List<Vehiculo> getVehiculos() {
-        return vehiculos;
-    }
 
-    public static void setVehiculos(List<Vehiculo> vehiculos) {
-        HelloApplication.vehiculos = vehiculos;
-    }
-
-    public static List<Persona> getEmpleados() {
-        return empleados;
-    }
-
-    public static void setEmpleados(List<Persona> empleados) {
-        HelloApplication.empleados = empleados;
-    }
 }

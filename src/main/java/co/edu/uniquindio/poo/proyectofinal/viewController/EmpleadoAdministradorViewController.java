@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class EmpleadoAdministradorViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -175,7 +177,7 @@ public class EmpleadoAdministradorViewController {
         empleado.setSalario(Double.parseDouble(txf_SalarioEmpleado.getText()));
         empleado.setIdEmpleado(txf_IDEmpleado.getText());
 
-        HelloApplication.getEmpleados().add(empleado);
+        concesionario.getListaEmpleados().add(empleado);
         txf_CedulaEmpleado.setText("");
         txf_DireccionEmpleado.setText("");
         txf_IDEmpleado.setText("");

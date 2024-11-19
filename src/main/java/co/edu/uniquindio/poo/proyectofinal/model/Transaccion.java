@@ -37,6 +37,9 @@ public class Transaccion {
         this.cliente = cliente;
     }
 
+    public Transaccion() {
+    }
+
     /**
      * Metodo que obtiene el id de una transaccion
      * @return

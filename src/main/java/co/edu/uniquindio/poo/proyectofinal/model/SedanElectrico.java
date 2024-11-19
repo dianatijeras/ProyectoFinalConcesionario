@@ -54,6 +54,9 @@ public class SedanElectrico extends VehiculoElectrico implements ICalcularCostoT
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    public SedanElectrico() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un sedan
      * @return
