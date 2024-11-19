@@ -57,6 +57,9 @@ public class CamionetaHibrida extends VehiculoHibrido implements ICalcularCostoT
         this.es4x4 = es4x4;
     }
 
+    /**
+     * Constructor vacio que inicializa una camioneta hibrida sin parametros
+     */
     public CamionetaHibrida() {
     }
 
@@ -252,6 +255,13 @@ public class CamionetaHibrida extends VehiculoHibrido implements ICalcularCostoT
         this.es4x4 = es4x4;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

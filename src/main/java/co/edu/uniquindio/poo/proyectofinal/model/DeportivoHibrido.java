@@ -36,6 +36,9 @@ public class DeportivoHibrido extends VehiculoHibrido implements ICalcularCostoT
         this.tiempo0a100 = tiempo0a100;
     }
 
+    /**
+     * Constructor vacio que inicializa un deportivo hibrido sin parametros
+     */
     public DeportivoHibrido() {
     }
 
@@ -119,6 +122,13 @@ public class DeportivoHibrido extends VehiculoHibrido implements ICalcularCostoT
         this.tiempo0a100 = tiempo0a100;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

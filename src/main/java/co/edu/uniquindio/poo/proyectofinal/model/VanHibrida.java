@@ -42,6 +42,9 @@ public class VanHibrida extends VehiculoHibrido implements ICalcularCostoTotal{
         this.abs = abs;
     }
 
+    /**
+     * Constructor vacio que inicializa una van hibrida sin parametros
+     */
     public VanHibrida() {
     }
 
@@ -158,6 +161,13 @@ public class VanHibrida extends VehiculoHibrido implements ICalcularCostoTotal{
         this.abs = abs;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

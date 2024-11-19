@@ -357,6 +357,9 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         }
     }
 
+    /**
+     * Metodo que muestra registro de transacciones
+     */
     @Override
     public void registroTransacciones() {
         for (Transaccion transaccion : listaTransacciones){
@@ -438,6 +441,10 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         return vehiculoFinal;
     }
 
+    /**
+     * Metodo que agrega un transaccion de tipo VENTA
+     * @param transaccion
+     */
     public  void  agregarTransaccionVenta(Transaccion transaccion) {
         if(transaccion.getTipoTransaccion() == TipoTransaccion.VENTA) {
             listaTransacciones.add(transaccion);
@@ -445,6 +452,10 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         }
     }
 
+    /**
+     * Metodo que agrega un transaccion de tipo COMPRA
+     * @param transaccion
+     */
     public  void  agregarTransaccionCompra(Transaccion transaccion) {
         if(transaccion.getTipoTransaccion() == TipoTransaccion.COMPRA) {
             listaTransacciones.add(transaccion);
@@ -452,6 +463,10 @@ public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransacc
         }
     }
 
+    /**
+     * Metodo que agrega un transaccion de tipo ALQUILER
+     * @param transaccion
+     */
     public  void  agregarTransaccionAlquiler(Transaccion transaccion) {
         if(transaccion.getTipoTransaccion() == TipoTransaccion.ALQUILER) {
             listaTransacciones.add(transaccion);

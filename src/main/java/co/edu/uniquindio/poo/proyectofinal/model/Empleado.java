@@ -142,7 +142,7 @@ public class Empleado extends Persona{
     }
 
     /**
-     *
+     * Metodo toString
      * @return
      */
     @Override

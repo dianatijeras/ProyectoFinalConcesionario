@@ -54,6 +54,9 @@ public class SedanElectrico extends VehiculoElectrico implements ICalcularCostoT
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    /**
+     * Constructor vacio que inicializa un sedan electrico sin parametros
+     */
     public SedanElectrico() {
     }
 
@@ -233,6 +236,13 @@ public class SedanElectrico extends VehiculoElectrico implements ICalcularCostoT
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

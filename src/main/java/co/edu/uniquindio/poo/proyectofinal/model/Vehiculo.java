@@ -38,6 +38,9 @@ public class Vehiculo {
         this.tipoCombustible = new SimpleObjectProperty<>(tipoCombustible);
     }
 
+    /**
+     * Constructor vacio
+     */
     public Vehiculo() {
         this.marca = new SimpleStringProperty("");
         this.placa = new SimpleStringProperty("");
@@ -211,6 +214,11 @@ public class Vehiculo {
         this.tipoCombustible.set(tipoCombustible);
     }
 
+
+    /**
+     * Metodo toString
+     * @return
+     */
     @Override
     public String toString() {
         return marca + " - " + placa;

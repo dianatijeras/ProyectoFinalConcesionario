@@ -59,7 +59,7 @@ public class ReporteViewController {
     private TableColumn<Transaccion, Double> tbc_Valor;
 
     @FXML
-    private TableColumn<Transaccion, Vehiculo> tbc_Vehiculo;
+    private TableColumn<Transaccion, String> tbc_Vehiculo;
 
     @FXML
     void onClick_Volver(ActionEvent event) {
@@ -88,6 +88,8 @@ public class ReporteViewController {
 
     @FXML
     void initialize() {
+
+        concesionario.getListaTransacciones().forEach(e -> System.out.println(e.toString()));
         tbc_Empleado.setCellValueFactory(cellData -> cellData.getValue().empleadoProperty());
         tbc_Valor.setCellValueFactory(cellData -> cellData.getValue().montoProperty().asObject());
         tbc_TipoTransaccion.setCellValueFactory(cellData -> cellData.getValue().tipoTransaccionProperty());

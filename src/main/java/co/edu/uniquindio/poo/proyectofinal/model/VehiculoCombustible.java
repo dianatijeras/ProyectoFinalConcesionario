@@ -22,6 +22,9 @@ public class VehiculoCombustible extends Vehiculo{
         this.capacidadTanque = capacidadTanque;
     }
 
+    /**
+     * Constructor vacio que inicializa un vehiculo combustible sin parametros
+     */
     public VehiculoCombustible() {
     }
 

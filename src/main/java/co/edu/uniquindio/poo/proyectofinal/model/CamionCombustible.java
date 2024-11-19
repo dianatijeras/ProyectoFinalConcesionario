@@ -38,6 +38,9 @@ public class CamionCombustible extends VehiculoCombustible implements ICalcularC
         this.tipoCamion = tipoCamion;
     }
 
+    /**
+     * Constructor vacio que inicializa un camion combustible sin parametros
+     */
     public CamionCombustible() {
     }
 
@@ -137,6 +140,13 @@ public class CamionCombustible extends VehiculoCombustible implements ICalcularC
         this.tipoCamion = tipoCamion;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

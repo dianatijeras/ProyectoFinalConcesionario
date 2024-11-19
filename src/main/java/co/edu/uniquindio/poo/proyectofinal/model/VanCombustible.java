@@ -41,6 +41,9 @@ public class VanCombustible extends VehiculoCombustible implements ICalcularCost
         this.abs = abs;
     }
 
+    /**
+     * Constructor vacio que inicializa una van combustible sin parametros
+     */
     public VanCombustible() {
     }
 
@@ -158,6 +161,12 @@ public class VanCombustible extends VehiculoCombustible implements ICalcularCost
     }
 
 
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

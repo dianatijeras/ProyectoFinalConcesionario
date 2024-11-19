@@ -24,6 +24,9 @@ public class MotoElectrica extends VehiculoElectrico implements ICalcularCostoTo
         this.anioFabricacion = anioFabricacion;
     }
 
+    /**
+     * Constructor vacio que inicializa una moto electrica sin parametros
+     */
     public MotoElectrica() {
     }
 
@@ -43,6 +46,13 @@ public class MotoElectrica extends VehiculoElectrico implements ICalcularCostoTo
         this.anioFabricacion = anioFabricacion;
     }
 
+
+    /**
+     * Metodo que calcua el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

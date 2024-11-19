@@ -31,6 +31,9 @@ public class Administrador extends Persona {
         this.username = username;
     }
 
+    /**
+     * Constructor vacio que inicializa un administrador sin parametros
+     */
     public Administrador() {
     }
 

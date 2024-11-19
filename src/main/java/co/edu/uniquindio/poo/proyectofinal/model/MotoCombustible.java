@@ -23,6 +23,9 @@ public class MotoCombustible extends VehiculoCombustible implements ICalcularCos
         this.anioFabricacion = anioFabricacion;
     }
 
+    /**
+     * Constructor vacio que inicializa una moto combustible sin parametros
+     */
     public MotoCombustible() {
     }
 
@@ -42,6 +45,13 @@ public class MotoCombustible extends VehiculoCombustible implements ICalcularCos
         this.anioFabricacion = anioFabricacion;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

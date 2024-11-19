@@ -24,6 +24,9 @@ public class MotoHibrida extends VehiculoHibrido implements ICalcularCostoTotal{
         this.anioFabricacion = anioFabricacion;
     }
 
+    /**
+     * Constructor vacio que inicializa una moto hibrida sin parametros
+     */
     public MotoHibrida() {
     }
 
@@ -43,6 +46,13 @@ public class MotoHibrida extends VehiculoHibrido implements ICalcularCostoTotal{
         this.anioFabricacion = anioFabricacion;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

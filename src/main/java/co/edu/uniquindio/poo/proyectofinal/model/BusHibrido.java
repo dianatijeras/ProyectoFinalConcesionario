@@ -48,6 +48,9 @@ public class BusHibrido extends VehiculoHibrido implements ICalcularCostoTotal{
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+    /**
+     * Constructor vacio que inicializa un bus hibrido sin parametros
+     */
     public BusHibrido() {
     }
 
@@ -195,6 +198,13 @@ public class BusHibrido extends VehiculoHibrido implements ICalcularCostoTotal{
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

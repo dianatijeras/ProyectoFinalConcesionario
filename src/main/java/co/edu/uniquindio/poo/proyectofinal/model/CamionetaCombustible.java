@@ -50,6 +50,9 @@ public class CamionetaCombustible extends VehiculoCombustible implements ICalcul
         this.es4x4 = es4x4;
     }
 
+    /**
+     * Constructor vacio que inicializa una camioneta combustible sin parametros
+     */
     public CamionetaCombustible() {
     }
 
@@ -245,6 +248,13 @@ public class CamionetaCombustible extends VehiculoCombustible implements ICalcul
         this.es4x4 = es4x4;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

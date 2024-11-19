@@ -24,6 +24,9 @@ public class Persona {
         this.direccion = new SimpleStringProperty(direccion);
     }
 
+    /**
+     * Constructor vacio de la clase Persona que inicializa un objet con valores predeterminado
+     */
     public Persona() {
         this.nombre = new SimpleStringProperty("");
         this.telefono = new SimpleStringProperty("");

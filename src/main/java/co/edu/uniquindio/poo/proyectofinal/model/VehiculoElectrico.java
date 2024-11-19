@@ -25,6 +25,9 @@ public class VehiculoElectrico extends Vehiculo {
         this.tiempoCargaPromedio = tiempoCargaPromedio;
     }
 
+    /**
+     * Constructor vacio que inicializa un vehiculo electrico sin parametros
+     */
     public VehiculoElectrico() {
     }
 

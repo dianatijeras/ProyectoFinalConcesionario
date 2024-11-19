@@ -48,6 +48,9 @@ public class BusElectrico extends VehiculoElectrico implements ICalcularCostoTot
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+    /**
+     * Constructor vacio que inicializa un bus electrico sin parametros
+     */
     public BusElectrico() {
     }
 
@@ -195,6 +198,13 @@ public class BusElectrico extends VehiculoElectrico implements ICalcularCostoTot
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

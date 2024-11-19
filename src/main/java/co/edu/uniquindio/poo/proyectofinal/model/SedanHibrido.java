@@ -54,6 +54,9 @@ public class SedanHibrido extends VehiculoHibrido implements ICalcularCostoTotal
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    /**
+     * Constructor vacio que inicializa un sedan hibrida sin parametros
+     */
     public SedanHibrido() {
     }
 
@@ -233,6 +236,13 @@ public class SedanHibrido extends VehiculoHibrido implements ICalcularCostoTotal
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

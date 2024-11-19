@@ -159,6 +159,7 @@ public class TransaccionViewController {
                     break;
                 case ALQUILER:
                     realizarAlquiler();
+                    break;
                 case COMPRA:
                     realizarCompra();
                     break;
@@ -171,9 +172,9 @@ public class TransaccionViewController {
 
     private void realizarVenta(){
         Transaccion transaccion = new Transaccion();
-        transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
+        transaccion.setTipoTransaccion(TipoTransaccion.VENTA);
         transaccion.setEmpleado(HelloApplication.getPersonaActual().getCedula());
-        transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setVehiculo(cb_Vehiculo.getSelectionModel().getSelectedItem());
         transaccion.setCliente(cb_Cliente.getValue());
         transaccion.setMonto(monto.get());
         transaccion.setFecha(LocalDate.now().toString());
@@ -184,8 +185,8 @@ public class TransaccionViewController {
 
     private void realizarCompra(){
         Transaccion transaccion = new Transaccion();
-        transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
-        transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setTipoTransaccion(TipoTransaccion.COMPRA);
+        transaccion.setVehiculo(cb_Vehiculo.getSelectionModel().getSelectedItem());
         transaccion.setEmpleado(HelloApplication.getPersonaActual().getCedula());
         transaccion.setCliente(cb_Cliente.getValue());
         transaccion.setMonto(monto.get());
@@ -196,8 +197,8 @@ public class TransaccionViewController {
 
     private void realizarAlquiler(){
         Transaccion transaccion = new Transaccion();
-        transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
-        transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setTipoTransaccion(TipoTransaccion.ALQUILER);
+        transaccion.setVehiculo(cb_Vehiculo.getSelectionModel().getSelectedItem());
         transaccion.setEmpleado(HelloApplication.getPersonaActual().getCedula());
         transaccion.setCliente(cb_Cliente.getValue());
         transaccion.setMonto(monto.get());

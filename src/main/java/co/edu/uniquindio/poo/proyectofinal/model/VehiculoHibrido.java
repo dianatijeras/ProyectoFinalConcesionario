@@ -26,6 +26,9 @@ public class VehiculoHibrido extends Vehiculo{
         this.esHibridoLiguero = esHibridoLiguero;
     }
 
+    /**
+     * Constructor vacio que inicializa un vehiculo hibrido sin parametros
+     */
     public VehiculoHibrido() {
     }
 

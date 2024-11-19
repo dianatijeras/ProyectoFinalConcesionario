@@ -60,7 +60,7 @@ public class Transaccion {
         return empleado;
     }
 
-    public ObjectProperty<Vehiculo> vehiculoProperty() {return vehiculo;}
+    public StringProperty vehiculoProperty() {return vehiculo.get().placaProperty();}
 
     public String getEmpleado() {
         return empleado.get();
@@ -147,7 +147,7 @@ public class Transaccion {
      * @param tipoTransaccion
      */
     public void setTipoTransaccion(TipoTransaccion tipoTransaccion) {
-        this.tipoTransaccion.get();
+        this.tipoTransaccion.set(tipoTransaccion);
     }
 
     /**
@@ -158,6 +158,7 @@ public class Transaccion {
         return cliente;
     }
 
+
     /**
      * Metodo que establece un cliente
      *
@@ -167,4 +168,16 @@ public class Transaccion {
         this.cliente = cliente;
     }
 
+    @Override
+    public String toString() {
+        return "Transaccion{" +
+                "idTransaccion='" + idTransaccion + '\'' +
+                ", empleado=" + empleado +
+                ", fecha='" + fecha + '\'' +
+                ", monto=" + monto +
+                ", vehiculo=" + vehiculo +
+                ", tipoTransaccion=" + tipoTransaccion +
+                ", cliente=" + cliente +
+                '}';
+    }
 }

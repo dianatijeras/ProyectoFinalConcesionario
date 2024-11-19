@@ -47,6 +47,9 @@ public class BusCombustible extends VehiculoCombustible implements ICalcularCost
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+    /**
+     * Constructor vacio que inicializa un bus combustible sin parametros
+     */
     public BusCombustible() {
     }
 
@@ -194,6 +197,13 @@ public class BusCombustible extends VehiculoCombustible implements ICalcularCost
         this.numSalidasEmergencia = numSalidasEmergencia;
     }
 
+
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

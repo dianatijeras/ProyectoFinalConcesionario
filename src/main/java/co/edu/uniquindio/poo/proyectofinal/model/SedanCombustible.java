@@ -53,6 +53,9 @@ public class SedanCombustible extends VehiculoCombustible implements ICalcularCo
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    /**
+     * Constructor vacio que inicializa un sedan combustible sin parametros
+     */
     public SedanCombustible() {
     }
 
@@ -232,6 +235,12 @@ public class SedanCombustible extends VehiculoCombustible implements ICalcularCo
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    /**
+     * Metodo que calcula el costo
+     * @param dias
+     * @param tarifaFija
+     * @return
+     */
     @Override
     public double calcularCosto(int dias, double tarifaFija) {
         return 0;

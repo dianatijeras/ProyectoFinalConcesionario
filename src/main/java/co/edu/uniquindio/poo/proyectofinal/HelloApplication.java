@@ -47,6 +47,7 @@ public class HelloApplication extends Application {
         empleado.setNombre("Juan");
         empleado.setTelefono("312456789");
         empleado.setDireccion("juan@gmail.com");
+        empleado.setCedula("123456789");
 
         concesionario.getListaEmpleados().add(empleado);
 
