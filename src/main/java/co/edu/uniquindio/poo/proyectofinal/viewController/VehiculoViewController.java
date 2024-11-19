@@ -281,6 +281,24 @@ public class VehiculoViewController {
                 if (tipo.name().equals("Moto")){
                     vehiculo = new MotoHibrida();
                 }
+                if (tipo.name().equals("Deportivo")){
+                    vehiculo = new DeportivoHibrido();
+                }
+                if (tipo.name().equals("Camioneta")){
+                    vehiculo = new CamionetaHibrida();
+                }
+                if (tipo.name().equals("Camion")){
+                    vehiculo = new CamionetaHibrida();
+                }
+                if (tipo.name().equals("PickUp")) {
+                    vehiculo = new PickUpHibrido();
+                }
+                if (tipo.name().equals("Sedan")){
+                    vehiculo = new SedanHibrido();
+                }
+                if (tipo.name().equals("Van")){
+                    vehiculo = new VanHibrida();
+                }
         }
 
         if (vehiculo != null){
@@ -299,7 +317,6 @@ public class VehiculoViewController {
     @FXML
     void initialize() {
         cb_EstadoVehiculo.getItems().addAll(Estado.values());
-
         cb_TipoTransmicionVehiculo.getItems().addAll(TipoTransmicion.values());
         cb_TipoCombustibleVehiculo.getItems().addAll(TipoCombustible.values());
         cb_TipoVehiculo.getItems().addAll(TipoVehiculo.values());

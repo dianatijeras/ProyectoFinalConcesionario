@@ -57,6 +57,9 @@ public class CamionetaHibrida extends VehiculoHibrido implements ICalcularCostoT
         this.es4x4 = es4x4;
     }
 
+    public CamionetaHibrida() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de una camioneta
      * @return

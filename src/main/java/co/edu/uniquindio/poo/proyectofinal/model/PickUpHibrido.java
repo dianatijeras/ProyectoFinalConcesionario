@@ -45,6 +45,9 @@ public class PickUpHibrido extends VehiculoHibrido implements ICalcularCostoTota
         this.es4x4 = es4x4;
     }
 
+    public PickUpHibrido() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un pickUp
      * @return

@@ -54,6 +54,9 @@ public class SedanHibrido extends VehiculoHibrido implements ICalcularCostoTotal
         this.asistentePermanenciaCarril = asistentePermanenciaCarril;
     }
 
+    public SedanHibrido() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un sedan
      * @return

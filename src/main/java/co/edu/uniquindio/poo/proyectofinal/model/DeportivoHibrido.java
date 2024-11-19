@@ -36,6 +36,9 @@ public class DeportivoHibrido extends VehiculoHibrido implements ICalcularCostoT
         this.tiempo0a100 = tiempo0a100;
     }
 
+    public DeportivoHibrido() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de un deportivo
      * @return

@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.proyectofinal.model;
 import java.util.Collection;
 import java.util.LinkedList;
 
+
 public class Concesionario implements ICrudCliente, ICrudEmpleado, ICrudTransaccion, ICrudVehiculo{
 
     private String nombre;

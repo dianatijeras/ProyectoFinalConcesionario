@@ -42,6 +42,9 @@ public class VanHibrida extends VehiculoHibrido implements ICalcularCostoTotal{
         this.abs = abs;
     }
 
+    public VanHibrida() {
+    }
+
     /**
      * Metodo que obtiene el numero de pasajeros de una van
      * @return

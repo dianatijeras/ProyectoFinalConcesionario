@@ -5,14 +5,14 @@ import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
 import co.edu.uniquindio.poo.proyectofinal.model.ICrudVehiculo;
 import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
 
-import java.util.concurrent.ConcurrentSkipListSet;
 
-private Conc
 
 public class VehiculoController implements ICrudVehiculo {
-    Concesionario consesionario;
+    private Concesionario concesionario;
 
-    public VehiculoController(Concesionario concesionario) {
+
+
+    public VehiculoController() {
 
 
     }
