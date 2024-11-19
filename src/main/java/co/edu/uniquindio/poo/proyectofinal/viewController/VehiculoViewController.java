@@ -316,7 +316,12 @@ public class VehiculoViewController {
             vehiculo.setMarca(txf_MarcaVehiculo.getText());
             vehiculo.setPlaca(txf_PlacaVehiculo.getText());
             vehiculo.setTipoCombustible(cb_TipoCombustibleVehiculo.getSelectionModel().getSelectedItem());
-                concesionario.getListaVehiculos().add(vehiculo);
+            vehiculo.setEstado(cb_EstadoVehiculo.getSelectionModel().getSelectedItem());
+            vehiculo.setModelo(txf_ModeloVehiculo.getText());
+            vehiculo.setTipoTransmicion(cb_TipoTransmicionVehiculo.getSelectionModel().getSelectedItem());
+            vehiculo.setCambios(Integer.parseInt(txf_CambiosVehiculo.getText()));
+
+            concesionario.getListaVehiculos().add(vehiculo);
         }
 
     }

@@ -172,10 +172,13 @@ public class TransaccionViewController {
     private void realizarVenta(){
         Transaccion transaccion = new Transaccion();
         transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
+        transaccion.setEmpleado(HelloApplication.getPersonaActual().getCedula());
         transaccion.setVehiculo(cb_Vehiculo.getValue());
         transaccion.setCliente(cb_Cliente.getValue());
         transaccion.setMonto(monto.get());
         transaccion.setFecha(LocalDate.now().toString());
+        transaccion.setIdTransaccion(txf_IDTransaccion.getText());
+        concesionario.getListaTransacciones().add(transaccion);
 
     }
 
@@ -183,18 +186,24 @@ public class TransaccionViewController {
         Transaccion transaccion = new Transaccion();
         transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
         transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setEmpleado(HelloApplication.getPersonaActual().getCedula());
         transaccion.setCliente(cb_Cliente.getValue());
         transaccion.setMonto(monto.get());
         transaccion.setFecha(LocalDate.now().toString());
+        transaccion.setIdTransaccion(txf_IDTransaccion.getText());
+        concesionario.getListaTransacciones().add(transaccion);
     }
 
     private void realizarAlquiler(){
         Transaccion transaccion = new Transaccion();
         transaccion.setTipoTransaccion(cb_TipoTransaccion.getValue());
         transaccion.setVehiculo(cb_Vehiculo.getValue());
+        transaccion.setEmpleado(HelloApplication.getPersonaActual().getCedula());
         transaccion.setCliente(cb_Cliente.getValue());
         transaccion.setMonto(monto.get());
         transaccion.setFecha(LocalDate.now().toString());
+        transaccion.setIdTransaccion(txf_IDTransaccion.getText());
+        concesionario.getListaTransacciones().add(transaccion);
     }
 
 

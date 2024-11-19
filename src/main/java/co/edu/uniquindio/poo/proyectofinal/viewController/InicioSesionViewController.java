@@ -80,6 +80,7 @@ public class InicioSesionViewController {
 
             if (( concesionario.getAdministrador()).getUsername().equals(usuario) && (concesionario.getAdministrador()).getContrasenia().equals(contrasenia)){
                 cambiarVentana1(event);
+                HelloApplication.setPersonaActual(concesionario.getAdministrador());
             }
 
 
@@ -87,6 +88,7 @@ public class InicioSesionViewController {
             if (persona.getClass().equals(Empleado.class)){
                 if (((Empleado) persona).getUsername().equals(usuario) && ((Empleado) persona).getContrasenia().equals(contrasenia)){
                     cambiarVentana(event);
+                    HelloApplication.setPersonaActual(persona);
                     break;
                 }
             } else {

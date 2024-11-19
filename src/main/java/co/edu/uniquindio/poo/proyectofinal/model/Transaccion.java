@@ -1,15 +1,18 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import javafx.beans.property.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Transaccion {
 
     private String idTransaccion;
+    private StringProperty empleado;
     private String fecha;
-    private double monto;
-    private Vehiculo vehiculo;
-    private TipoTransaccion tipoTransaccion;
+    private DoubleProperty monto;
+    private ObjectProperty<Vehiculo> vehiculo;
+    private ObjectProperty<TipoTransaccion> tipoTransaccion;
     private Cliente cliente;
 
 
@@ -28,16 +31,43 @@ public class Transaccion {
      * @param tipoTransaccion
      * @param cliente
      */
-    public Transaccion(String idTransaccion, String fecha, double monto, Vehiculo vehiculo, TipoTransaccion tipoTransaccion, Cliente cliente) {
+    public Transaccion(String idTransaccion, String empleado, String fecha, double monto, Vehiculo vehiculo, TipoTransaccion tipoTransaccion, Cliente cliente) {
         this.idTransaccion = idTransaccion;
         this.fecha = fecha;
-        this.monto = monto;
-        this.vehiculo = vehiculo;
-        this.tipoTransaccion = tipoTransaccion;
+        this.monto = new SimpleDoubleProperty(monto);
+        this.vehiculo = new SimpleObjectProperty<>(vehiculo);
+        this.tipoTransaccion = new SimpleObjectProperty<>(tipoTransaccion);
         this.cliente = cliente;
+        this.empleado = new SimpleStringProperty(empleado);
     }
 
     public Transaccion() {
+        this.monto = new SimpleDoubleProperty(0.0);
+        this.vehiculo = new SimpleObjectProperty<>(null);
+        this.tipoTransaccion = new SimpleObjectProperty<>(null);
+        this.empleado = new SimpleStringProperty("");
+    }
+
+    public DoubleProperty montoProperty() {
+        return monto;
+    }
+
+    public ObjectProperty<TipoTransaccion> tipoTransaccionProperty() {
+        return tipoTransaccion;
+    }
+
+    public StringProperty empleadoProperty() {
+        return empleado;
+    }
+
+    public ObjectProperty<Vehiculo> vehiculoProperty() {return vehiculo;}
+
+    public String getEmpleado() {
+        return empleado.get();
+    }
+
+    public void setEmpleado(String empleado) {
+        this.empleado.set(empleado);
     }
 
     /**
@@ -77,7 +107,7 @@ public class Transaccion {
      * @return
      */
     public double getMonto() {
-        return monto;
+        return monto.get();
     }
 
     /**
@@ -85,7 +115,7 @@ public class Transaccion {
      * @param monto
      */
     public void setMonto(double monto) {
-        this.monto = monto;
+        this.monto.set(monto);
     }
 
     /**
@@ -93,7 +123,7 @@ public class Transaccion {
      * @return
      */
     public Vehiculo getVehiculo() {
-        return vehiculo;
+        return vehiculo.get();
     }
 
     /**
@@ -101,7 +131,7 @@ public class Transaccion {
      * @param vehiculo
      */
     public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
+        this.vehiculo.set(vehiculo);
     }
 
     /**
@@ -109,7 +139,7 @@ public class Transaccion {
      * @return
      */
     public TipoTransaccion getTipoTransaccion() {
-        return tipoTransaccion;
+        return tipoTransaccion.get();
     }
 
     /**
@@ -117,7 +147,7 @@ public class Transaccion {
      * @param tipoTransaccion
      */
     public void setTipoTransaccion(TipoTransaccion tipoTransaccion) {
-        this.tipoTransaccion = tipoTransaccion;
+        this.tipoTransaccion.get();
     }
 
     /**
@@ -136,4 +166,5 @@ public class Transaccion {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
 }

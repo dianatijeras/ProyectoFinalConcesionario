@@ -3,6 +3,12 @@ package co.edu.uniquindio.poo.proyectofinal.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
+import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
+import co.edu.uniquindio.poo.proyectofinal.model.Empleado;
+import co.edu.uniquindio.poo.proyectofinal.model.Persona;
+import co.edu.uniquindio.poo.proyectofinal.model.Transaccion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class BuscarTransaccionViewController {
+    Concesionario concesionario = HelloApplication.concesionario;
 
     @FXML
     private ResourceBundle resources;
@@ -46,8 +55,25 @@ public class BuscarTransaccionViewController {
 
     @FXML
     void onClick_BuscarTransaccion(ActionEvent event) {
+        String id = txf_IDTransaccion.getText();
+        boolean existe = false;
+        System.out.println(id);
+
+        for(Transaccion transaccion: concesionario.getListaTransacciones()){
+                if(transaccion.getIdTransaccion().equals(id)){
+                    existe = true;
+                    JOptionPane.showMessageDialog(null, "Se ha encontrado la Transaccion" + transaccion.toString());
+                }
+
+        }
+
+        if(!existe){
+            JOptionPane.showMessageDialog(null, "No se ha encontrado el Transaccion" + id);
+        }
+
 
     }
+
 
     @FXML
     void onClick_Volver(ActionEvent event) {

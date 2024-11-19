@@ -96,21 +96,17 @@ public class BuscarOEliminarEmpleadoAdministrador {
     }
     public void volverAInicio() {
         try {
-            // Cargar el archivo FXML de InicioViewController
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/MenuEmpleadoAdministrador.fxml"));
             Parent root = loader.load();
 
-            // Obtener el Stage actual
             Stage currentStage = (Stage) (btn_Volver).getScene().getWindow();
 
-            // Configurar la nueva escena
             Scene scene = new Scene(root);
             currentStage.setScene(scene);
             currentStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar el error en caso de que el archivo FXML no se cargue
         }
     }
 

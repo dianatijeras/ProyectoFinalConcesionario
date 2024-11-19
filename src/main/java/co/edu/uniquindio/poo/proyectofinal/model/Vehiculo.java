@@ -1,19 +1,18 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class Vehiculo {
 
     private StringProperty  marca;
     private StringProperty placa;
-    private String modelo;
-    private int cambios;
+    private StringProperty modelo;
+    private IntegerProperty cambios;
     private int cilindraje;
     private int velocidadMax;
-    private Estado estado;
-    private TipoTransmicion tipoTransmicion;
-    private TipoCombustible tipoCombustible;
+    private ObjectProperty <Estado> estado;
+    private ObjectProperty <TipoTransmicion> tipoTransmicion;
+    private ObjectProperty <TipoCombustible> tipoCombustible;
 
     /**
      * Constructor de la clase padre Vehiculo
@@ -30,18 +29,23 @@ public class Vehiculo {
     public Vehiculo(String marca, String placa, String modelo, int cambios, int cilindraje, int velocidadMax, Estado estado, TipoTransmicion tipoTransmicion, TipoCombustible tipoCombustible) {
         this.marca = new SimpleStringProperty(marca);
         this.placa = new SimpleStringProperty(placa);
-        this.modelo = modelo;
-        this.cambios = cambios;
+        this.modelo = new SimpleStringProperty(modelo);
+        this.cambios = new SimpleIntegerProperty(cambios);
         this.cilindraje = cilindraje;
         this.velocidadMax = velocidadMax;
-        this.estado = estado;
-        this.tipoTransmicion = tipoTransmicion;
-        this.tipoCombustible = tipoCombustible;
+        this.estado = new SimpleObjectProperty<>(estado);
+        this.tipoTransmicion = new SimpleObjectProperty<>(tipoTransmicion);
+        this.tipoCombustible = new SimpleObjectProperty<>(tipoCombustible);
     }
 
     public Vehiculo() {
         this.marca = new SimpleStringProperty("");
         this.placa = new SimpleStringProperty("");
+        this.modelo = new SimpleStringProperty("");
+        this.cambios = new SimpleIntegerProperty(0);
+        this.estado = new SimpleObjectProperty<>(null);
+        this.tipoTransmicion = new SimpleObjectProperty<>(null);
+        this.tipoCombustible = new SimpleObjectProperty<>(null);
     }
 
     public StringProperty marcaProperty() {
@@ -51,6 +55,16 @@ public class Vehiculo {
     public StringProperty placaProperty() {
         return placa;
     }
+
+    public StringProperty modeloProperty() {return modelo;}
+
+    public IntegerProperty cambiosProperty() {return cambios;}
+
+    public ObjectProperty <Estado> estadoProperty() {return estado;}
+
+    public ObjectProperty <TipoTransmicion> tipoTransmicionProperty() {return tipoTransmicion;}
+
+    public ObjectProperty <TipoCombustible> tipoCombustibleProperty() {return tipoCombustible;}
 
 
     /**
@@ -90,7 +104,7 @@ public class Vehiculo {
      * @return
      */
     public String getModelo() {
-        return modelo;
+        return modelo.get();
     }
 
     /**
@@ -98,7 +112,7 @@ public class Vehiculo {
      * @param modelo
      */
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        this.modelo.set(modelo);
     }
 
     /**
@@ -106,7 +120,7 @@ public class Vehiculo {
      * @return
      */
     public int getCambios() {
-        return cambios;
+        return cambios.get();
     }
 
     /**
@@ -114,7 +128,7 @@ public class Vehiculo {
      * @param cambios
      */
     public void setCambios(int cambios) {
-        this.cambios = cambios;
+        this.cambios.set(cambios);
     }
 
     /**
@@ -154,7 +168,7 @@ public class Vehiculo {
      * @return
      */
     public Estado getEstado() {
-        return estado;
+        return estado.get();
     }
 
     /**
@@ -162,7 +176,7 @@ public class Vehiculo {
      * @param estado
      */
     public void setEstado(Estado estado) {
-        this.estado = estado;
+        this.estado.set(estado);
     }
 
     /**
@@ -170,7 +184,7 @@ public class Vehiculo {
      * @return
      */
     public TipoTransmicion getTipoTransmicion() {
-        return tipoTransmicion;
+        return tipoTransmicion.get();
     }
 
     /**
@@ -178,7 +192,7 @@ public class Vehiculo {
      * @param tipoTransmicion
      */
     public void setTipoTransmicion(TipoTransmicion tipoTransmicion) {
-        this.tipoTransmicion = tipoTransmicion;
+        this.tipoTransmicion.set(tipoTransmicion);
     }
 
     /**
@@ -186,7 +200,7 @@ public class Vehiculo {
      * @return
      */
     public TipoCombustible getTipoCombustible() {
-        return tipoCombustible;
+        return tipoCombustible.get();
     }
 
     /**
@@ -194,7 +208,7 @@ public class Vehiculo {
      * @param tipoCombustible
      */
     public void setTipoCombustible(TipoCombustible tipoCombustible) {
-        this.tipoCombustible = tipoCombustible;
+        this.tipoCombustible.set(tipoCombustible);
     }
 
     @Override

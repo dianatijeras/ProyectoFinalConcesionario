@@ -14,6 +14,15 @@ import java.util.List;
 public class HelloApplication extends Application {
 
     public static Concesionario concesionario;
+    public static Persona personaActual;
+
+    public static Persona getPersonaActual() {
+        return personaActual;
+    }
+
+    public static void setPersonaActual(Persona personaActual) {
+        HelloApplication.personaActual = personaActual;
+    }
 
     @Override
     public void start(Stage stage) throws IOException {

@@ -5,8 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.proyectofinal.HelloApplication;
-import co.edu.uniquindio.poo.proyectofinal.model.Concesionario;
-import co.edu.uniquindio.poo.proyectofinal.model.Vehiculo;
+import co.edu.uniquindio.poo.proyectofinal.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,25 +44,25 @@ public class VerVehiculosViewController {
     private TableView<Vehiculo> tb_VerVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_CambiosVehiculo;
+    private TableColumn<Vehiculo, Integer> tbc_CambiosVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_EstadoVehiculo;
+    private TableColumn<Vehiculo, Estado> tbc_EstadoVehiculo;
 
     @FXML
     private TableColumn<Vehiculo, String> tbc_MarcaVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_ModeloVehiculo;
+    private TableColumn<Vehiculo, String> tbc_ModeloVehiculo;
 
     @FXML
     private TableColumn<Vehiculo, String> tbc_PlacaVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_TipoCombustibleVehiculo;
+    private TableColumn<Vehiculo, TipoCombustible> tbc_TipoCombustibleVehiculo;
 
     @FXML
-    private TableColumn<?, ?> tbc_TipoTransmicionVehiculo;
+    private TableColumn<Vehiculo, TipoTransmicion> tbc_TipoTransmicionVehiculo;
 
 
 
@@ -95,6 +94,11 @@ public class VerVehiculosViewController {
     void initialize() {
         tbc_MarcaVehiculo.setCellValueFactory(cellData -> cellData.getValue().marcaProperty());
         tbc_PlacaVehiculo.setCellValueFactory(cellData -> cellData.getValue().placaProperty());
+        tbc_CambiosVehiculo.setCellValueFactory(cellData -> cellData.getValue().cambiosProperty().asObject());
+        tbc_EstadoVehiculo.setCellValueFactory(cellData -> cellData.getValue().estadoProperty());
+        tbc_ModeloVehiculo.setCellValueFactory(cellData -> cellData.getValue().modeloProperty());
+        tbc_TipoCombustibleVehiculo.setCellValueFactory(cellData -> cellData.getValue().tipoCombustibleProperty());
+        tbc_TipoTransmicionVehiculo.setCellValueFactory(cellData -> cellData.getValue().tipoTransmicionProperty());
         tb_VerVehiculo.getItems().setAll(concesionario.getListaVehiculos());
 
         assert btn_Volver != null : "fx:id=\"btn_Volver\" was not injected: check your FXML file 'MenuVerVehiculos.fxml'.";
