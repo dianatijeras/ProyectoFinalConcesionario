@@ -39,7 +39,7 @@ public class Vehiculo {
     }
 
     /**
-     * Constructor vacio
+     * Constructor vacio que inicializa un objeto con valores predeterminados
      */
     public Vehiculo() {
         this.marca = new SimpleStringProperty("");
